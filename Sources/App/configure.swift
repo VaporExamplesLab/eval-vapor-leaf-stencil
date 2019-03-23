@@ -5,13 +5,16 @@ import Vapor
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
     // Register providers first
     try services.register(LeafProvider())
+    try services.register(StencilProvider())
+    try services.register(SwiftHtmlProvider())
+    try services.register(SwiftOrganicProvider())
 
     // Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
     
-    // Use Leaf for rendering views
+    // Set Leaf the default ViewRenderer for rendering views
     config.prefer(LeafRenderer.self, for: ViewRenderer.self)
 
     // Register middleware

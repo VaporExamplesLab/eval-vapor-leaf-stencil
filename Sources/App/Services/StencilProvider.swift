@@ -1,0 +1,36 @@
+//
+//  StencilProvider.swift
+//  App
+//
+//  Created by marc on 2019.03.18.
+//
+
+import Vapor
+
+/// Adds Stencil services to your container.
+///
+///     try services.register(StencilProvider())
+///
+public final class StencilProvider: Provider {
+    /// Creates a new `StencilProvider`.
+    public init() {}
+
+    /// See `Provider`.
+    public func register(_ services: inout Services) throws {
+
+        /// See `Services`
+        /// Registers a `Service` creating closure (service factory).
+        /// Ensures a new instance of the `Service` is initialized for each sub-container.
+        /// Provides access to the `Container` when the `Service` is initialized.
+        /// Declares protocol conformance: ViewRenderer.self
+        services.register([ViewRenderer.self]) {
+            container -> StencilRenderer in
+            return StencilRenderer.init(using: container)
+        }
+    }
+    
+    /// See `Provider`.
+    public func didBoot(_ container: Container) throws -> Future<Void> {
+        return .done(on: container)
+    }
+}
