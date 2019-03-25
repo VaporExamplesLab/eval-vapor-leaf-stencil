@@ -7,7 +7,7 @@
 
 import Vapor
 
-/// Adds Swift Organic Template services to your container.
+/// Provide Swift Organic Template services to a Container.
 ///
 ///     try services.register(SwiftOrganicProvider())
 ///
@@ -25,7 +25,7 @@ public final class SwiftOrganicProvider: Provider {
         /// Declares protocol conformance: ViewRenderer.self
         services.register([ViewRenderer.self]) {
             container -> SwiftOrganicRenderer in
-            return SwiftOrganicRenderer.init(using: container)
+            return try SwiftOrganicRenderer.init(using: container)
         }
     }
     

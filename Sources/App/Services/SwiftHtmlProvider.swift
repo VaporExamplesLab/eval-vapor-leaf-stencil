@@ -7,7 +7,7 @@
 
 import Vapor
 
-/// Adds Swift-HTML DSL services to your container.
+/// Provide Swift-HTML DSL services to a Container.
 ///
 ///     try services.register(SwiftHtmlProvider())
 ///
@@ -25,7 +25,7 @@ public final class SwiftHtmlProvider: Provider {
         /// Declares protocol conformance: ViewRenderer.self
         services.register([]) { // ViewRenderer.self
             container -> SwiftHtmlRenderer in
-            return SwiftHtmlRenderer.init(using: container)
+            return try SwiftHtmlRenderer.init(using: container)
         }
     }
     

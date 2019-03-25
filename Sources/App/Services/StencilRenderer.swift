@@ -8,15 +8,21 @@
 import Foundation
 import Vapor
 import Stencil
+import PathKit
 
 public final class StencilRenderer: ViewRenderer, Service {
     public var shouldCache: Bool = false // See: ViewRenderer
-    public let stencilEnvironment: Stencil.Environment
     /// The event loop this renderer will use to read files
-    public let container: Container
-    
-    init(using container: Container) {
-        stencilEnvironment = Stencil.Environment(loader: FileSystemLoader(paths: ["Resources/Stencil/"]))
+    private let container: Container
+    /// Environment: template loader
+    private let stencilEnvironment: Stencil.Environment
+
+    init(using container: Container) throws {
+        let directoryConfig = try container.make(DirectoryConfig.self)
+        let stencilPathStr = directoryConfig.workDir + "Resources/Stencil/"
+        let stencilPath = Path(stencilPathStr)
+        let loader: Loader = FileSystemLoader(paths: [stencilPath])
+        self.stencilEnvironment = Stencil.Environment(loader: loader)
         self.container = container
     }
     

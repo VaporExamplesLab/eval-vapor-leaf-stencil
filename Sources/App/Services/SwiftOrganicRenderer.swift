@@ -12,8 +12,13 @@ public final class SwiftOrganicRenderer: ViewRenderer, Service {
     public var shouldCache: Bool = false // See: ViewRenderer
     /// The event loop this renderer will use to read files
     public let container: Container
-    
-    init(using container: Container) {
+    ///
+    private let htmlPartsUrl: URL
+
+    init(using container: Container) throws {
+        let directoryConfig = try container.make(DirectoryConfig.self)
+        let htmlPartsPath = directoryConfig.workDir + "Resources/HtmlParts/"
+        self.htmlPartsUrl = URL(fileURLWithPath: htmlPartsPath, isDirectory: true)
         self.container = container
     }
     

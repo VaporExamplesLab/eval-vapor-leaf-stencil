@@ -9,12 +9,16 @@ import Foundation
 import Vapor
 import Html
 
-public final class SwiftHtmlRenderer: Service { // ViewRenderer,
-    public var shouldCache: Bool = false // See: ViewRenderer
+public final class SwiftHtmlRenderer: Service {
     /// The event loop this renderer will use to read files
-    public let container: Container
+    private let container: Container
+    ///
+    private let htmlPartsUrl: URL
     
-    init(using container: Container) {
+    init(using container: Container) throws {
+        let directoryConfig = try container.make(DirectoryConfig.self)
+        let htmlPartsPath = directoryConfig.workDir + "Resources/HtmlParts/"
+        self.htmlPartsUrl = URL(fileURLWithPath: htmlPartsPath, isDirectory: true)
         self.container = container
     }
     

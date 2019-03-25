@@ -7,9 +7,11 @@
 
 import Vapor
 
-/// Adds Stencil services to your container.
+/// Provide Stencil services to a Container.
 ///
 ///     try services.register(StencilProvider())
+///
+///
 ///
 public final class StencilProvider: Provider {
     /// Creates a new `StencilProvider`.
@@ -25,7 +27,7 @@ public final class StencilProvider: Provider {
         /// Declares protocol conformance: ViewRenderer.self
         services.register([ViewRenderer.self]) {
             container -> StencilRenderer in
-            return StencilRenderer.init(using: container)
+            return try StencilRenderer.init(using: container)
         }
     }
     

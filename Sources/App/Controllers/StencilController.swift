@@ -8,6 +8,7 @@
 import Foundation
 import Vapor
 import Stencil
+import PathKit
 
 struct StencilController: RouteCollection {
     
@@ -45,12 +46,14 @@ struct StencilController: RouteCollection {
     
     // MARK: - Example
     
-    public let stencilEnvironment: Stencil.Environment = Stencil.Environment(
-        loader: FileSystemLoader(paths: ["Resources/Stencil/"])
-    )
-
     // GET /stencil/example
     func stencilExampleHandler(_ request: Request) throws -> Future<View> {
+        let directoryConfig = try request.make(DirectoryConfig.self)
+        let stencilPathStr = directoryConfig.workDir + "Resources/Stencil/"
+        let stencilPath = Path(stencilPathStr)
+        let loader: Loader = FileSystemLoader(paths: [stencilPath])
+        let stencilEnvironment = Stencil.Environment(loader: loader)
+        
         struct Book {
             let title: String
             let author: String
@@ -67,15 +70,16 @@ struct StencilController: RouteCollection {
         return try _dispatchStencilFutureView(
             request: request,
             filename: "book_list.html",
-            context: context)  // Future<View>
+            context: context,
+            environment: stencilEnvironment)  // Future<View>
     }
     
-    private func _dispatchStencilFutureView(request: Request, filename: String, context: [String: Any]? = nil) throws -> Future<View> {
+    private func _dispatchStencilFutureView(request: Request, filename: String, context: [String: Any]? = nil, environment: Stencil.Environment) throws -> Future<View> {
         let promiseString: Promise<View> = request.eventLoop.newPromise(View.self)
         
         DispatchQueue.global().async { // () -> Void
             do {
-                let rendered: String = try self.stencilEnvironment.renderTemplate(name: filename, context: context)
+                let rendered: String = try environment.renderTemplate(name: filename, context: context)
                 let renderedData = Data(rendered.utf8)
                 let view: View = View(data:renderedData)
                 return promiseString.succeed(result: view)
