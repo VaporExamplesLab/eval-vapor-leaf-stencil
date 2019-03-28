@@ -10,7 +10,7 @@ import Vapor
 import Stencil
 import PathKit
 
-public final class StencilRenderer: Service { // :DEBUG:!!!: ViewRenderer
+public final class StencilRenderer: Service { // ViewRenderer
     public var shouldCache: Bool = false // See: ViewRenderer
     /// The event loop this renderer will use to read files
     private let container: Container

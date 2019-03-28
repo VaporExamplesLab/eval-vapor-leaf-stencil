@@ -1,6 +1,8 @@
 <!-- :CONTENT:BEGIN:Blog: -->  
 # Code Blog
 
+_content_
+
 Here's a Swift snippet which illustrates 
 selective platform compilation.
 
@@ -15,6 +17,8 @@ selective platform compilation.
 ```
 
 <!-- :CONTENT:MORE:Blog: -->
+
+_source_
 
 ``` html
 <p>Here's a Swift snippet which illustrates 
@@ -33,6 +37,8 @@ selective platform compilation.</p>
 
 **Arduino C/C++**
 
+_content_
+
 Hey robotics club members, the [Arduino forum](https://forum.arduino.cc/index.php?topic=98155.0) had the answer we were looking for! 
 
 ``` cpp
@@ -40,6 +46,8 @@ Hey robotics club members, the [Arduino forum](https://forum.arduino.cc/index.ph
   #include <EthernetDNS.h>   
 #endif
 ```
+
+_source_
 
 ``` html
 <p>Hey robotics club members, the
@@ -55,6 +63,7 @@ Hey robotics club members, the [Arduino forum](https://forum.arduino.cc/index.ph
 
 **HTML Templating**
 
+_content_
 
 ``` html
 <p>Use the following pattern to 
@@ -69,6 +78,8 @@ in fenced code markdown syntax:</p>
 ```
 
 **HTML CSS**
+
+_content_
 
 `#` is an CSS id selector. Here are some examples:
 

@@ -18,18 +18,21 @@ struct SwiftHtmlTemplateBlog: SwiftHtmlTemplate {
             titleValue = dictionary["titleKey"] ?? "Blog Page"
             bodyValue = dictionary["bodyKey"] ?? "Content not found."
         }
-
-        let node = html([
-            head([
-                title("\(titleValue)")
-                ]),
-            
-            body([
-                h1([Node.text("Blog Page")]),
-                Node.raw("\(bodyValue)"),
-                p([em(["Swift-HTML Template"])])
-                ]) // end body
-            ]) // end html
+        
+        let node =
+            html([
+                head([
+                    //script([("src", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_SVG")]),
+                    //script(<#T##attribs: [Attribute<Tag.Script>]##[Attribute<Tag.Script>]#>),
+                    title("\(titleValue)")
+                    ]),
+                
+                body([
+                    Node.raw("\(bodyValue)"),
+                    br,
+                    p([em(["Swift-HTML Template"])])
+                    ]) // end body
+                ]) // end html
         return node
     }
     

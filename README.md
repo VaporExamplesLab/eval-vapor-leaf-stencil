@@ -64,10 +64,12 @@ OPTIONS="$OPTIONS+pipe_tables"
 OPTIONS="$OPTIONS+space_in_atx_header"
 OPTIONS="$OPTIONS+blank_before_blockquote"
 OPTIONS="$OPTIONS+backtick_code_blocks"
+OPTIONS="$OPTIONS+tex_math_dollars"
 
 pandoc \
   --from=$OPTIONS \
-  --to=html \
+  --to=html5 \
+  --mathjax \
   --output=math.html \
   math.md
 ```
@@ -95,6 +97,8 @@ cd eval-vapor-leaf-stencil
 
 mkdir README_files 
 touch README_files/.git_keep # create file so folder is not empty for `git`
+
+vapor update -y
 ```
 
 ## Resources <a id="linkResources"></a>
