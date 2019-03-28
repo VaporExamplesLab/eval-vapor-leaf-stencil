@@ -2,7 +2,7 @@
 //  SwiftHtmlTemplateHello.swift
 //  App
 //
-//  Created by marc on 2019.03.20.
+//  Created by marc-medley on 2019.03.20.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ struct SwiftHtmlTemplateHello: SwiftHtmlTemplate {
     public func render<E>(context: E) -> Html.Node where E: Encodable  {
         var name = ""
         if let dictionary = context as? [String:String] {
-            name = dictionary["name"] ?? "it's good to see you"
+            name = dictionary["nameKey"] ?? "it's good to see you"
         }
 
         let node = html([

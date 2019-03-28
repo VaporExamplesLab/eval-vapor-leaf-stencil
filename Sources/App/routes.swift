@@ -13,7 +13,7 @@ public func routes(_ router: Router) throws {
             .render(template: SwiftOrganicTemplateHome(), [String:String]())
     }
 
-    // /futureView
+    // GET /futureView
     router.get("futureView") {
         request -> Future<View> in
         
@@ -34,11 +34,11 @@ public func routes(_ router: Router) throws {
         return promiseView.futureResult
     }
     
-    // Says hello to just Swift
+    // GET /hello
     router.get("hello", String.parameter) {
         req -> Future<View> in
         return try req.view().render("hello", [
-            "name": req.parameters.next(String.self)
+            "nameKey": req.parameters.next(String.self)
             ])
     }
 

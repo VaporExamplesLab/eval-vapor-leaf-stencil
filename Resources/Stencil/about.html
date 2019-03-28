@@ -3,20 +3,16 @@
 {% block titleBlock %}About Stencil{% endblock %}
 
 {% block bodyBlock %}
-    <aside>
-        {% block asideBlock %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/stencil">Stencil</a></li>
-        </ul>
-        {% endblock %}
-    </aside>
 
+    <article>
+    
+    <p>Stencil is a simple and powerful template language for Swift. It provides a syntax similar to Django and Mustache.</p>
+        
     <section>
         {% block sectionBlock %}
         <h4>Example List:</h4>
         
-        There are {{ booksKey.count }} books listed.
+        This list has {{ booksKey.count }} books.
         
         <ul>
             {% for book in booksKey %}
@@ -25,4 +21,15 @@
         </ul>
         {% endblock %}
     </section>
+    </article>
+
+    <aside>
+        {% block asideBlock %}
+        <h4>Links:</h4>
+        <ul>
+            <li><a href="https://stencil.fuller.li/en/latest/">The Stencil template language</a></li>
+            <li><a href="https://github.com/stencilproject/Stencil/">GitHub: stencilproject/Stencil</a></li>
+        </ul>
+        {% endblock %}
+    </aside>
 {% endblock %}

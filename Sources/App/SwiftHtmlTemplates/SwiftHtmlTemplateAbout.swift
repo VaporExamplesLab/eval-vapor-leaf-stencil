@@ -2,7 +2,7 @@
 //  SwiftHtmlTemplateAbout.swift
 //  App
 //
-//  Created by marc on 2019.03.21.
+//  Created by marc-medley on 2019.03.21.
 //
 
 import Foundation
@@ -45,10 +45,20 @@ struct SwiftHtmlTemplateAbout: SwiftHtmlTemplate {
         """
         
         let node: Html.Node = html([
-            head([style(stylesheet)]),
+            head([
+                style(stylesheet),
+                title("About Swift-HTML")
+                ]),
             
             body([
                 h1([Node.text("swift-html-vapor")]),
+                h2(["Type-safe Vapor HTML"]),
+                p(["""
+                Swift-HTML Domain Specific Language allows you to write
+                type-safe, transformable, composable HTML views in a Vapor app!
+
+                Swift-HTML DSL
+                """]),
                 blockquote([
                     "A Vapor plugin for type-safe, transformable HTML views using ",
                     a([href("https://github.com/pointfreeco/swift-html")], ["swift-html"])
@@ -56,47 +66,49 @@ struct SwiftHtmlTemplateAbout: SwiftHtmlTemplate {
                 
                 h2(["Motivation"]),
                 p(["""
-            The most popular choice for rendering HTML in a Vapor web app is to use the Leaf templating language,
-            but it exposes your application to runtime errors and invalid HTML. Our plugin prevents these
-            runtime issues at compile-time by embedding HTML directly into Swift’s powerful type system. It uses the
-            swift-html DSL for constructing HTML documents using plain Swift data structures.
-            """
-                    ]),
+                The most popular choice for rendering HTML in a Vapor web app is to
+                use the Leaf templating language, but it exposes your application to
+                runtime errors and invalid HTML. Our plugin prevents these runtime
+                issues at compile-time by embedding HTML directly into Swift’s powerful
+                type system. It uses the swift-html DSL for constructing HTML documents
+                using plain Swift data structures.
+                """]),
                 
                 h2(["Usage"]),
                 p(["""
-            To use the plugin all you have to do is return a `Node` value from your router callback:
-            """]),
+                To use the plugin all you have to do is return a `Node` value from
+                your router callback:
+                """]),
                 pre(["""
-            import HtmlVaporSupport
-            import Vapor
+                import HtmlVaporSupport
+                import Vapor
 
-            let app = try Application()
-            let router = try app.make(Router.self)
+                let app = try Application()
+                let router = try app.make(Router.self)
 
-            router.get("/") { _ in
-              h1(["Hello, type-safe HTML on Vapor!"])
-            }
+                router.get("/") { _ in
+                  h1(["Hello, type-safe HTML on Vapor!"])
+                }
 
-            try app.run()
-            """
-                    ]),
+                try app.run()
+                """]),
                 
                 h2(["Take it for a spin"]),
                 p(["""
-            We've included a sample Vapor application in this repo to show off its usage. To run the app
-            immediately, simply do:
-            """]),
+                We've included a sample Vapor application in this repo to show off
+                its usage. To run the app immediately, simply do:
+                """]),
                 ul([
                     li([code(["swift run HtmlVaporSupportExample"])]),
                     li(["Open your browser to ", code(["http://localhost:8080"])])
                     ]),
                 p(["""
-            The HTML for that page is constructed and rendered with swift-html!
-            """]),
+                The HTML for that page is constructed and rendered with swift-html!
+                """]),
                 p(["""
-            If you want to run the app in Xcode so that you can play around with the HTML, try this:
-            """]),
+                If you want to run the app in Xcode so that you can play around
+                with the HTML, try this:
+                """]),
                 ul([
                     li([code(["git clone https://github.com/pointfreeco/swift-html-vapor"])]),
                     li([code(["cd swift-html-vapor"])]),
@@ -110,5 +122,5 @@ struct SwiftHtmlTemplateAbout: SwiftHtmlTemplate {
         return node
     }
     
-
+    
 }

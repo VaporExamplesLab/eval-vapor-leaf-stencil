@@ -2,7 +2,7 @@
 //  SwiftHtmlController.swift
 //  App
 //
-//  Created by marc on 2019.03.19.
+//  Created by marc-medley on 2019.03.19.
 //
 
 import Foundation
@@ -29,42 +29,31 @@ struct SwiftHtmlController: RouteCollection {
         }
         
         // GET /swift-html/hello
-        swiftHtmlRoutes.get("hello", use: swiftHtmlHelloHandler)
+        swiftHtmlRoutes.get("hello", use: swifthtmlHelloHandler)
         
         // GET /swift-html/hello/name
-        swiftHtmlRoutes.get("hello", String.parameter, use: swiftHtmlHelloHandler)
+        swiftHtmlRoutes.get("hello", String.parameter, use: swifthtmlHelloHandler)
         
-        // GET /swift-html/example
-        swiftHtmlRoutes.get("example") {
-            // `(request: Request) -> ResponseEncodable`
-            (request: Request) -> Html.Node in
-            let node: Node = html([
-                body([
-                    h1(["Type-safe Vapor HTML"]),
-                    p([
-                        """
-                        Swift-HTML Domain Specific Language allows you to write
-                        type-safe, transformable, composable HTML views in a Vapor app!
-
-                        Swift-HTML DSL
-                        """
-                        ]) // end p
-                    ]) // end body
-                ]) // end html
-            return node
-        }
+        // GET /swift-html/latexmath
+        swiftHtmlRoutes.get("latexmath", use: swifthtmlMathHandler)
+        
+        // GET /swift-html/codeblog
+        swiftHtmlRoutes.get("codeblog", use: swifthtmlCodeblogHandler)
+        
+        // GET /swift-html/mdtohtml
+        swiftHtmlRoutes.get("mdtohtml", use: swifthtmlMdtohtmlHandler)
     }
     
     // func handler(_ request: Request) -> ResponseEncodable { }
     
     // GET /swift-html/hello/name
-    func swiftHtmlHelloHandler(_ request: Request) throws -> Future<Html.Node> {
+    func swifthtmlHelloHandler(_ request: Request) throws -> Future<Html.Node> {
         var context: [String: String] = [:]
         if let name = try? request.parameters.next(String.self) {
-            context["name"] = name
+            context["nameKey"] = name
         }
         else {
-            context["name"] = "glad you could stop by"
+            context["nameKey"] = "glad you could stop by"
         }
         
         let swiftHtmlTemplate = SwiftHtmlTemplateHello()
@@ -72,4 +61,40 @@ struct SwiftHtmlController: RouteCollection {
         return swiftHtmlRender.render(template: swiftHtmlTemplate, context)
     }
     
+    // GET /swift-html/latexmath
+    func swifthtmlMathHandler(_ request: Request) throws -> Future<Html.Node> {
+        let body = try String(
+            contentsOf: htmlPartsUrl.appendingPathComponent("math.html", isDirectory: false),
+            encoding: String.Encoding.utf8)
+        let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
+        
+        let swiftHtmlTemplate = SwiftHtmlTemplateBlog()
+        let swifthtmlRender = try request.make(SwiftHtmlRenderer.self)
+        return swifthtmlRender.render(template: swiftHtmlTemplate, context)
+    }
+    
+    // GET /swift-html/codeblog
+    func swifthtmlCodeblogHandler(_ request: Request) throws -> Future<Html.Node> {
+        let body = try String(
+            contentsOf: htmlPartsUrl.appendingPathComponent("codeblog.html", isDirectory: false),
+            encoding: String.Encoding.utf8)
+        let context: [String: String] = ["titleKey":"Code Blog", "bodyKey": body]
+        
+        let swiftHtmlTemplate = SwiftHtmlTemplateBlog()
+        let swifthtmlRender = try request.make(SwiftHtmlRenderer.self)
+        return swifthtmlRender.render(template: swiftHtmlTemplate, context)
+    }
+    
+    // GET /swift-html/mdtohtml
+    func swifthtmlMdtohtmlHandler(_ request: Request) throws -> Future<Html.Node> {
+        let body = try String(
+            contentsOf: htmlPartsUrl.appendingPathComponent("mdtohtml.html", isDirectory: false),
+            encoding: String.Encoding.utf8)
+        let context: [String: String] = ["titleKey":"MD ➜ HTML Elements", "bodyKey": body]
+        
+        let swiftHtmlTemplate = SwiftHtmlTemplateBlog()
+        let swifthtmlRender = try request.make(SwiftHtmlRenderer.self)
+        return swifthtmlRender.render(template: swiftHtmlTemplate, context)
+    }
+
 }

@@ -2,7 +2,7 @@
 //  SwiftOrganicController.swift
 //  App
 //
-//  Created by marc on 2019.03.19.
+//  Created by marc-medley on 2019.03.19.
 //
 
 import Foundation
@@ -17,10 +17,10 @@ struct SwiftOrganicController: RouteCollection {
     }
 
     func boot(router: Router) throws {
-        let swiftLangRoutes = router.grouped("swift-lang")
+        let swiftlangRoutes = router.grouped("swift-lang")
         
         // GET /swift-lang About page.
-        swiftLangRoutes.get {
+        swiftlangRoutes.get {
             (request: Request) -> Future<View> in
             return try request
                 .make(SwiftOrganicRenderer.self)
@@ -28,37 +28,70 @@ struct SwiftOrganicController: RouteCollection {
         }
         
         // GET /swift-lang/hello
-        swiftLangRoutes.get("hello", use: swiftLangHelloHandler)
+        swiftlangRoutes.get("hello", use: swiftlangHelloHandler)
         
         // GET /swift-lang/hello/name
-        swiftLangRoutes.get("hello", String.parameter, use: swiftLangHelloHandler)
+        swiftlangRoutes.get("hello", String.parameter, use: swiftlangHelloHandler)
         
-        swiftLangRoutes.get("example") {
-            // (request: Request) -> ResponseEncodable in
-            (request: Request) -> String in
-            return """
-            Basic. Minimal. String. Example.
-            
-            Swift Organic Language.
-            """
-        }
+        // GET /swift-lang/latexmath
+        swiftlangRoutes.get("latexmath", use: swiftlangMathHandler)
+        
+        // GET /swift-lang/codeblog
+        swiftlangRoutes.get("codeblog", use: swiftlangCodeblogHandler)
+        
+        // GET /swift-lang/mdtohtml
+        swiftlangRoutes.get("mdtohtml", use: swiftlangMdtohtmlHandler)
     }
     
     // GET /swift-lang/hello/name
-    func swiftLangHelloHandler(_ request: Request) throws -> Future<View> {
+    func swiftlangHelloHandler(_ request: Request) throws -> Future<View> {
         var context: [String: String] = [:]
         if let name = try? request.parameters.next(String.self) {
-            context["name"] = name
+            context["nameKey"] = name
         }
         else {
-            context["name"] = "glad you could stop by"
+            context["nameKey"] = "glad you could stop by"
         }
         
-        let swiftLangTemplate = SwiftOrganicTemplateHello()
-        let swiftLangRender = try request.make(SwiftOrganicRenderer.self)
-        return swiftLangRender.render(template: swiftLangTemplate, context)
+        let swiftlangTemplate = SwiftOrganicTemplateHello()
+        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        return swiftlangRender.render(template: swiftlangTemplate, context)
     }
 
+    // GET /swift-html/latexmath
+    func swiftlangMathHandler(_ request: Request) throws -> Future<View> {
+        let body = try String(
+            contentsOf: htmlPartsUrl.appendingPathComponent("math.html", isDirectory: false),
+            encoding: String.Encoding.utf8)
+        let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
+        
+        let swiftlangTemplate = SwiftOrganicTemplateBlog()
+        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        return swiftlangRender.render(template: swiftlangTemplate, context)
+    }
     
+    // GET /swift-html/codeblog
+    func swiftlangCodeblogHandler(_ request: Request) throws -> Future<View> {
+        let body = try String(
+            contentsOf: htmlPartsUrl.appendingPathComponent("codeblog.html", isDirectory: false),
+            encoding: String.Encoding.utf8)
+        let context: [String: String] = ["titleKey":"Code Blog", "bodyKey": body]
+        
+        let swiftlangTemplate = SwiftOrganicTemplateBlog()
+        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        return swiftlangRender.render(template: swiftlangTemplate, context)
+    }
+    
+    // GET /swift-html/mdtohtml
+    func swiftlangMdtohtmlHandler(_ request: Request) throws -> Future<View> {
+        let body = try String(
+            contentsOf: htmlPartsUrl.appendingPathComponent("mdtohtml.html", isDirectory: false),
+            encoding: String.Encoding.utf8)
+        let context: [String: String] = ["titleKey":"MD ➜ HTML Elements", "bodyKey": body]
+        
+        let swiftlangTemplate = SwiftOrganicTemplateBlog()
+        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        return swiftlangRender.render(template: swiftlangTemplate, context)
+    }
 
 }

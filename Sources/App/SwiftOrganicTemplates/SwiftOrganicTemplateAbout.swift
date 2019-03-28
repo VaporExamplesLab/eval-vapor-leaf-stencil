@@ -2,7 +2,7 @@
 //  SwiftOrganicTemplateAbout.swift
 //  App
 //
-//  Created by marc on 2019.03.22.
+//  Created by marc-medley on 2019.03.22.
 //
 
 import Foundation
@@ -19,10 +19,10 @@ struct SwiftOrganicTemplateAbout: SwiftOrganicTemplate {
         <link rel="stylesheet" href="/styles/app.css">
         </head>
         <body>
-        <h1>About</h1>
-        <em>Swift Language Organic Template</em>
+        <p><strong>Basic. Minimal. String. Example.</strong></p>
+        <p>Templates written directly with Swift <strong>String</strong>. No dependency on any external Swift Package.</p>
         <br>
-        <p>Templates written directly with Swift String without any dependency on an external package.</p>
+        <p><em>Swift Language Organic Template</em></p>
         </body>
         </html>
         """

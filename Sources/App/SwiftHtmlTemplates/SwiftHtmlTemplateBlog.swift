@@ -1,29 +1,32 @@
 //
-//  SwiftHtmlTemplate404.swift
+//  SwiftHtmlTemplateBlog.swift
 //  App
 //
-//  Created by marc-medley on 2019.03.21.
+//  Created by marc-medley on 2019.03.27.
 //
 
 import Foundation
 import Vapor
 import Html
 
-struct SwiftHtmlTemplate404: SwiftHtmlTemplate {
+struct SwiftHtmlTemplateBlog: SwiftHtmlTemplate {
     
     public func render<E>(context: E) -> Html.Node where E: Encodable  {
-        var templatename = ""
+        var titleValue = ""
+        var bodyValue = ""
         if let dictionary = context as? [String:String] {
-            templatename = dictionary["templatename"] ?? ""
+            titleValue = dictionary["titleKey"] ?? "Blog Page"
+            bodyValue = dictionary["bodyKey"] ?? "Content not found."
         }
 
         let node = html([
             head([
-                title("404 Not Found")
+                title("\(titleValue)")
                 ]),
             
             body([
-                h1([Node.text("404 Not Found [\(templatename)]")]),
+                h1([Node.text("Blog Page")]),
+                Node.raw("\(bodyValue)"),
                 p([em(["Swift-HTML Template"])])
                 ]) // end body
             ]) // end html

@@ -1,1 +1,52 @@
-<p>Code Blog Entry</p>
+<!-- :CONTENT:BEGIN:Blog: -->
+<h1>Code Blog</h1>
+<p>Here's a Swift snippet which illustrates selective platform compilation.</p>
+<pre class="swift"><code>#if os(Linux)
+  //
+#elseif os(macOS)
+  //  
+#else
+  // 
+#endif</code></pre>
+<!-- :CONTENT:MORE:Blog: -->
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;p&gt;</span>Here&#39;s a Swift snippet which illustrates </a>
+<a class="sourceLine" id="cb2-2" title="2">selective platform compilation.<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">&lt;pre&gt;&lt;code</span><span class="ot"> class=</span><span class="st">&quot;swift&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">#if os(Linux)</a>
+<a class="sourceLine" id="cb2-6" title="6">  //</a>
+<a class="sourceLine" id="cb2-7" title="7">#elseif os(macOS)</a>
+<a class="sourceLine" id="cb2-8" title="8">  //  </a>
+<a class="sourceLine" id="cb2-9" title="9">#else</a>
+<a class="sourceLine" id="cb2-10" title="10">  // </a>
+<a class="sourceLine" id="cb2-11" title="11">#endif</a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></a></code></pre></div>
+<p><strong>Arduino C/C++</strong></p>
+<p>Hey robotics club members, the <a href="https://forum.arduino.cc/index.php?topic=98155.0">Arduino forum</a> had the answer we were looking for!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="pp">#if !(defined(ARDUINO) &amp;&amp; ARDUINO &gt;= 100)</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="pp">#include </span><span class="im">&lt;EthernetDNS.h&gt;</span><span class="pp">   </span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="pp">#endif</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">&lt;p&gt;</span>Hey robotics club members, the</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://forum.arduino.cc/index.php?topic=98155.0&quot;</span><span class="kw">&gt;</span>Arduino forum<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    had the answer we were looking for!<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">&lt;pre&gt;&lt;code</span><span class="ot"> class=</span><span class="st">&quot;cpp&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">#if !(defined(ARDUINO) <span class="er">&amp;&amp;</span> ARDUINO &gt;= 100)</a>
+<a class="sourceLine" id="cb4-7" title="7">  #include <span class="kw">&lt;EthernetDNS.h&gt;</span>   </a>
+<a class="sourceLine" id="cb4-8" title="8">#endif</a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></a></code></pre></div>
+<p><strong>HTML Templating</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;p&gt;</span>Use the following pattern to </a>
+<a class="sourceLine" id="cb5-2" title="2">write about <span class="kw">&lt;code&gt;</span>#Syntax(…)#<span class="kw">&lt;/code&gt;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">in fenced code markdown syntax:<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">&lt;pre&gt;&lt;code</span><span class="ot"> class=</span><span class="st">&quot;syntax&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">… #Syntax(…)# example</a>
+<a class="sourceLine" id="cb5-7" title="7">… #tag# ... #endtag#</a>
+<a class="sourceLine" id="cb5-8" title="8">… #if()# ... #endif# </a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></a></code></pre></div>
+<p><strong>HTML CSS</strong></p>
+<p><code>#</code> is an CSS id selector. Here are some examples:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb6-1" title="1"><span class="pp">#navigation</span> { <span class="kw">width</span>: <span class="dv">12</span><span class="dt">em</span><span class="op">;</span> <span class="kw">color</span>: <span class="cn">#333</span><span class="op">;</span> }</a>
+<a class="sourceLine" id="cb6-2" title="2">div<span class="pp">#navigation</span> { <span class="kw">width</span>: <span class="dv">12</span><span class="dt">em</span><span class="op">;</span> <span class="kw">color</span>: <span class="cn">#333</span><span class="op">;</span> } </a></code></pre></div>
+<!-- :CONTENT:END:Blog: -->

@@ -2,7 +2,7 @@
 //  SwiftHtmlRenderer.swift
 //  App
 //
-//  Created by marc on 2019.03.21.
+//  Created by marc-medley on 2019.03.21.
 //
 
 import Foundation
@@ -29,22 +29,6 @@ public final class SwiftHtmlRenderer: Service {
     ///     - context: `Encodable` item that will be encoded to `TemplateData` and used as template context.
     ///     - userInfo: User-defined storage.
     /// - returns: `Future` containing the rendered `Html.Node`.
-//    public func render<E>(
-//        _ path: String,
-//        _ context: E,
-//        userInfo: [AnyHashable : Any])
-//        -> Future<Html.Node> where E : Encodable {
-//            
-//            var template: SwiftHtmlTemplate
-//            switch path {
-//            case "hello":
-//                template = SwiftHtmlTemplateHello()
-//            default:
-//                template = SwiftHtmlTemplate404()
-//            }
-//            let r = self.render(template: template, context as? [String : Any])
-//            return r
-//    }
     
     public func render<E>(
         template: SwiftHtmlTemplate,
