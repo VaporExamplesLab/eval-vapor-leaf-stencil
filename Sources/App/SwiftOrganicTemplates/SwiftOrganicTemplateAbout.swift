@@ -19,8 +19,10 @@ struct SwiftOrganicTemplateAbout: SwiftOrganicTemplate {
         <link rel="stylesheet" href="/styles/app.css">
         </head>
         <body>
-        <h1>Welcome.</h1>
+        <h1>About</h1>
         <em>Swift Language Organic Template</em>
+        <br>
+        <p>Templates written directly with Swift String without any dependency on an external package.</p>
         </body>
         </html>
         """

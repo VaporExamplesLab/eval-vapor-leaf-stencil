@@ -6,6 +6,9 @@
 //
 
 import Vapor
+import Stencil
+import PathKit
+
 
 /// Provide Stencil services to a Container.
 ///
@@ -17,6 +20,10 @@ public final class StencilProvider: Provider {
     /// Creates a new `StencilProvider`.
     public init() {}
 
+    static let stencilPathStr = DirectoryConfig.detect().workDir + "Resources/Stencil/"
+    static let stencilPath = Path(stencilPathStr)
+    static let loader: Loader = FileSystemLoader(paths: [stencilPath])
+    
     /// See `Provider`.
     public func register(_ services: inout Services) throws {
 

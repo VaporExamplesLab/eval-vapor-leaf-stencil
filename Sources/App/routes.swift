@@ -43,16 +43,20 @@ public func routes(_ router: Router) throws {
     }
 
     // Configure controllers
-    let leafController = LeafController()
+    let directoryConfig = DirectoryConfig.detect()
+    let resourcesPath = directoryConfig.workDir + "Resources/"
+    let resourcesUrl = URL(fileURLWithPath: resourcesPath, isDirectory: true)
+
+    let leafController = LeafController(resourcesUrl: resourcesUrl)
     try router.register(collection: leafController)
 
-    let stencilController = StencilController()
+    let stencilController = StencilController(resourcesUrl: resourcesUrl)
     try router.register(collection: stencilController)
 
-    let swiftHtmlController = SwiftHtmlController()
+    let swiftHtmlController = SwiftHtmlController(resourcesUrl: resourcesUrl)
     try router.register(collection: swiftHtmlController)
 
-    let swiftOrganicController = SwiftOrganicController()
+    let swiftOrganicController = SwiftOrganicController(resourcesUrl: resourcesUrl)
     try router.register(collection: swiftOrganicController)
 }
 

@@ -10,7 +10,7 @@ import Vapor
 import Stencil
 import PathKit
 
-public final class StencilRenderer: ViewRenderer, Service {
+public final class StencilRenderer: Service { // :DEBUG:!!!: ViewRenderer
     public var shouldCache: Bool = false // See: ViewRenderer
     /// The event loop this renderer will use to read files
     private let container: Container
@@ -18,7 +18,7 @@ public final class StencilRenderer: ViewRenderer, Service {
     private let stencilEnvironment: Stencil.Environment
 
     init(using container: Container) throws {
-        let directoryConfig = try container.make(DirectoryConfig.self)
+        let directoryConfig = DirectoryConfig.detect()
         let stencilPathStr = directoryConfig.workDir + "Resources/Stencil/"
         let stencilPath = Path(stencilPathStr)
         let loader: Loader = FileSystemLoader(paths: [stencilPath])
@@ -31,15 +31,12 @@ public final class StencilRenderer: ViewRenderer, Service {
     /// - parameters:
     ///     - path: Path to file containing raw template bytes.
     ///     - context: `Encodable` item that will be encoded to `TemplateData` and used as template context.
-    ///     - userInfo: User-defined storage.
     /// - returns: `Future` containing the rendered `View`.
-    public func render<E>(
-        _ path: String,
-        _ context: E,
-        userInfo: [AnyHashable : Any])
-        -> Future<View> where E : Encodable {
-            
-            // stencilEnvironment.renderTemplate(name: String, context: [String : Any]?) -> String
+    public func render(
+        _ path: String, // relative path to a Stencil template file
+        _ context: [AnyHashable : Any]
+        )
+        -> Future<View> {
             let promiseView: Promise<View> = container.eventLoop.newPromise(View.self)
             
             DispatchQueue.global().async {
@@ -61,13 +58,11 @@ public final class StencilRenderer: ViewRenderer, Service {
     }
     
     // string containing template
-    public func render<E>(
-        string: String,
-        _ context: E,
-        userInfo: [AnyHashable : Any])
-        -> Future<View> where E : Encodable {
-            
-            // stencilEnvironment.renderTemplate(name: String, context: [String : Any]?) -> String
+    public func render(
+        string: String, // String containing a Stencil template
+        _ context: [AnyHashable : Any]
+        )
+        -> Future<View> {
             let promiseView: Promise<View> = container.eventLoop.newPromise(View.self)
             
             DispatchQueue.global().async {

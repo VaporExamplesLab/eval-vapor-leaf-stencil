@@ -10,11 +10,17 @@ import Vapor
 import Html
 
 struct SwiftHtmlController: RouteCollection {
+
+    let htmlPartsUrl: URL
+    
+    init(resourcesUrl: URL) {
+        self.htmlPartsUrl = resourcesUrl.appendingPathComponent("HtmlParts", isDirectory: true)
+    }
     
     func boot(router: Router) throws {
         let swiftHtmlRoutes = router.grouped("swift-html")
         
-        // GET /swift-html About welcome page.
+        // GET /swift-html About page.
         swiftHtmlRoutes.get {
             (request: Request) -> Future<Html.Node> in
             return try request

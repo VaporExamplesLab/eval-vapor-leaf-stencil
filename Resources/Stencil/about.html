@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titleBlock %}About Stencil{% endblock %}
+
+{% block bodyBlock %}
+    <aside>
+        {% block asideBlock %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/stencil">Stencil</a></li>
+        </ul>
+        {% endblock %}
+    </aside>
+
+    <section>
+        {% block sectionBlock %}
+        <h4>Example List:</h4>
+        
+        There are {{ booksKey.count }} books listed.
+        
+        <ul>
+            {% for book in booksKey %}
+            <li><em>"{{ book.title }}"</em> by {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </section>
+{% endblock %}

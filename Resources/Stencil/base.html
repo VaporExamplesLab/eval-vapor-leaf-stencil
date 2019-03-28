@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{% block title %}Example{% endblock %}</title>
+    <meta charset=utf-8>
     <link rel="stylesheet" href="/styles/app.css">
+
+    <title>{% block titleBlock %}{{ titleKey|default:"Base Title" }}{% endblock %}</title>
 </head>
 <body>
-    {% block content %}{% endblock %}
+    {% block bodyBlock %}{% endblock %}
 </body>
 </html>

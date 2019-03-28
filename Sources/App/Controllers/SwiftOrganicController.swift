@@ -9,10 +9,17 @@ import Foundation
 import Vapor
 
 struct SwiftOrganicController: RouteCollection {
+
+    let htmlPartsUrl: URL
+    
+    init(resourcesUrl: URL) {
+        self.htmlPartsUrl = resourcesUrl.appendingPathComponent("HtmlParts", isDirectory: true)
+    }
+
     func boot(router: Router) throws {
         let swiftLangRoutes = router.grouped("swift-lang")
         
-        // GET /swift-lang About welcome page.
+        // GET /swift-lang About page.
         swiftLangRoutes.get {
             (request: Request) -> Future<View> in
             return try request
