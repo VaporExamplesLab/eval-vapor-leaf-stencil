@@ -1,5 +1,5 @@
 //
-//  SwiftHtmlTemplateBlog.swift
+//  SwifthtmlTemplateBlog.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.27.
@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import Html
 
-struct SwiftHtmlTemplateBlog: SwiftHtmlTemplate {
+struct SwifthtmlTemplateBlog: SwifthtmlTemplate {
     
     public func render<E>(context: E) -> Html.Node where E: Encodable  {
         var titleValue = ""

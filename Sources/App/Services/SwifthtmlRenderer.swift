@@ -1,5 +1,5 @@
 //
-//  SwiftHtmlRenderer.swift
+//  SwifthtmlRenderer.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import Html
 
-public final class SwiftHtmlRenderer: Service {
+public final class SwifthtmlRenderer: Service {
     /// The event loop this renderer will use to read files
     private let container: Container
     ///
@@ -31,7 +31,7 @@ public final class SwiftHtmlRenderer: Service {
     /// - returns: `Future` containing the rendered `Html.Node`.
     
     public func render<E>(
-        template: SwiftHtmlTemplate,
+        template: SwifthtmlTemplate,
         _ context: E)
         -> Future<Html.Node> where E : Encodable {
             let promiseNode: Promise<Html.Node> = container.eventLoop.newPromise(Html.Node.self)

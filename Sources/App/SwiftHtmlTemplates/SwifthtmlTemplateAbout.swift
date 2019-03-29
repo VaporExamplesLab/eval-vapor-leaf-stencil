@@ -1,5 +1,5 @@
 //
-//  SwiftHtmlTemplateAbout.swift
+//  SwifthtmlTemplateAbout.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -10,7 +10,7 @@ import Html
 
 // See: https://github.com/pointfreeco/swift-html-vapor/blob/master/Sources/HtmlVaporSupportExample/main.swift
 
-struct SwiftHtmlTemplateAbout: SwiftHtmlTemplate {
+struct SwifthtmlTemplateAbout: SwifthtmlTemplate {
     
     public func render<E>(context: E) -> Html.Node where E: Encodable  {
         let stylesheet: StaticString = """

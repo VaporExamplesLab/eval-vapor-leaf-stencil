@@ -1,5 +1,5 @@
 //
-//  SwiftHtmlController.swift
+//  SwifthtmlController.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.19.
@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import Html
 
-struct SwiftHtmlController: RouteCollection {
+struct SwifthtmlController: RouteCollection {
 
     let htmlPartsUrl: URL
     
@@ -24,8 +24,8 @@ struct SwiftHtmlController: RouteCollection {
         swiftHtmlRoutes.get {
             (request: Request) -> Future<Html.Node> in
             return try request
-                .make(SwiftHtmlRenderer.self)
-                .render(template: SwiftHtmlTemplateAbout(), [String:String]())
+                .make(SwifthtmlRenderer.self)
+                .render(template: SwifthtmlTemplateAbout(), [String:String]())
         }
         
         // GET /swift-html/hello
@@ -56,8 +56,8 @@ struct SwiftHtmlController: RouteCollection {
             context["nameKey"] = "glad you could stop by"
         }
         
-        let swiftHtmlTemplate = SwiftHtmlTemplateHello()
-        let swiftHtmlRender = try request.make(SwiftHtmlRenderer.self)
+        let swiftHtmlTemplate = SwifthtmlTemplateHello()
+        let swiftHtmlRender = try request.make(SwifthtmlRenderer.self)
         return swiftHtmlRender.render(template: swiftHtmlTemplate, context)
     }
     
@@ -68,8 +68,8 @@ struct SwiftHtmlController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
         
-        let swiftHtmlTemplate = SwiftHtmlTemplateBlog()
-        let swifthtmlRender = try request.make(SwiftHtmlRenderer.self)
+        let swiftHtmlTemplate = SwifthtmlTemplateBlog()
+        let swifthtmlRender = try request.make(SwifthtmlRenderer.self)
         return swifthtmlRender.render(template: swiftHtmlTemplate, context)
     }
     
@@ -80,8 +80,8 @@ struct SwiftHtmlController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Code Blog", "bodyKey": body]
         
-        let swiftHtmlTemplate = SwiftHtmlTemplateBlog()
-        let swifthtmlRender = try request.make(SwiftHtmlRenderer.self)
+        let swiftHtmlTemplate = SwifthtmlTemplateBlog()
+        let swifthtmlRender = try request.make(SwifthtmlRenderer.self)
         return swifthtmlRender.render(template: swiftHtmlTemplate, context)
     }
     
@@ -92,8 +92,8 @@ struct SwiftHtmlController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"MD ➜ HTML Elements", "bodyKey": body]
         
-        let swiftHtmlTemplate = SwiftHtmlTemplateBlog()
-        let swifthtmlRender = try request.make(SwiftHtmlRenderer.self)
+        let swiftHtmlTemplate = SwifthtmlTemplateBlog()
+        let swifthtmlRender = try request.make(SwifthtmlRenderer.self)
         return swifthtmlRender.render(template: swiftHtmlTemplate, context)
     }
 

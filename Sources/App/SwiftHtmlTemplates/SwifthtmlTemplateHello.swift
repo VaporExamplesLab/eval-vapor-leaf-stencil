@@ -1,29 +1,29 @@
 //
-//  SwiftHtmlTemplate404.swift
+//  SwifthtmlTemplateHello.swift
 //  App
 //
-//  Created by marc-medley on 2019.03.21.
+//  Created by marc-medley on 2019.03.20.
 //
 
 import Foundation
 import Vapor
 import Html
 
-struct SwiftHtmlTemplate404: SwiftHtmlTemplate {
+struct SwifthtmlTemplateHello: SwifthtmlTemplate {
     
     public func render<E>(context: E) -> Html.Node where E: Encodable  {
-        var templatename = ""
+        var name = ""
         if let dictionary = context as? [String:String] {
-            templatename = dictionary["templatename"] ?? ""
+            name = dictionary["nameKey"] ?? "it's good to see you"
         }
 
         let node = html([
             head([
-                title("404 Not Found")
+                title("Hello, \(name)")
                 ]),
             
             body([
-                h1([Node.text("404 Not Found [\(templatename)]")]),
+                h1([Node.text("Hello, \(name)!")]),
                 p([em(["Swift-HTML Template"])])
                 ]) // end body
             ]) // end html

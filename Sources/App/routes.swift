@@ -53,7 +53,7 @@ public func routes(_ router: Router) throws {
     let stencilController = StencilController(resourcesUrl: resourcesUrl)
     try router.register(collection: stencilController)
 
-    let swiftHtmlController = SwiftHtmlController(resourcesUrl: resourcesUrl)
+    let swiftHtmlController = SwifthtmlController(resourcesUrl: resourcesUrl)
     try router.register(collection: swiftHtmlController)
 
     let swiftOrganicController = SwiftOrganicController(resourcesUrl: resourcesUrl)

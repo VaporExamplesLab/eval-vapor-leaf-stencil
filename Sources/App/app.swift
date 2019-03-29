@@ -99,11 +99,11 @@ public func printConfigureInfo(_ config: Config, _ env: Environment, _ services:
  - LeafConfig
  - LeafTagConfig
  - StencilRenderer: ViewRenderer
- - SwiftHtmlRenderer
+ - SwifthtmlRenderer
  - SwiftOrganicRenderer: ViewRenderer
  Providers:
  - LeafProvider
  - StencilProvider
- - SwiftHtmlProvider
+ - SwifthtmlProvider
  - SwiftOrganicProvider
  *******************************/

@@ -6,7 +6,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // Register providers first
     try services.register(LeafProvider())
     try services.register(StencilProvider())
-    try services.register(SwiftHtmlProvider())
+    try services.register(SwifthtmlProvider())
     try services.register(SwiftOrganicProvider())
 
     // Register routes to the router

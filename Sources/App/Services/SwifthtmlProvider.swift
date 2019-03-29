@@ -1,5 +1,5 @@
 //
-//  SwiftHtmlProvider.swift
+//  SwifthtmlProvider.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -9,10 +9,10 @@ import Vapor
 
 /// Provide Swift-HTML DSL services to a Container.
 ///
-///     try services.register(SwiftHtmlProvider())
+///     try services.register(SwifthtmlProvider())
 ///
-public final class SwiftHtmlProvider: Provider {
-    /// Creates a new `SwiftHtmlProvider`.
+public final class SwifthtmlProvider: Provider {
+    /// Creates a new `SwifthtmlProvider`.
     public init() {}
     
     /// See `Provider`.
@@ -24,8 +24,8 @@ public final class SwiftHtmlProvider: Provider {
         /// Provides access to the `Container` when the `Service` is initialized.
         /// Declares protocol conformance: ViewRenderer.self
         services.register([]) { // ViewRenderer.self
-            container -> SwiftHtmlRenderer in
-            return try SwiftHtmlRenderer.init(using: container)
+            container -> SwifthtmlRenderer in
+            return try SwifthtmlRenderer.init(using: container)
         }
     }
     
