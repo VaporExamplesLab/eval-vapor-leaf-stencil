@@ -1,5 +1,5 @@
 //
-//  SwiftOrganicTemplateHello.swift
+//  SwiftorganicTemplateHello.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SwiftOrganicTemplateHello: SwiftOrganicTemplate {
+struct SwiftorganicTemplateHello: SwiftorganicTemplate {
     
     public func render<E>(context: E) -> String where E: Encodable {
         var name = ""

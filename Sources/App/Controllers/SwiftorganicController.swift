@@ -1,5 +1,5 @@
 //
-//  SwiftOrganicController.swift
+//  SwiftorganicController.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.19.
@@ -8,7 +8,7 @@
 import Foundation
 import Vapor
 
-struct SwiftOrganicController: RouteCollection {
+struct SwiftorganicController: RouteCollection {
 
     let htmlPartsUrl: URL
     
@@ -23,8 +23,8 @@ struct SwiftOrganicController: RouteCollection {
         swiftlangRoutes.get {
             (request: Request) -> Future<View> in
             return try request
-                .make(SwiftOrganicRenderer.self)
-                .render(template: SwiftOrganicTemplateAbout(), [String:String]())
+                .make(SwiftorganicRenderer.self)
+                .render(template: SwiftorganicTemplateAbout(), [String:String]())
         }
         
         // GET /swift-lang/hello
@@ -53,8 +53,8 @@ struct SwiftOrganicController: RouteCollection {
             context["nameKey"] = "glad you could stop by"
         }
         
-        let swiftlangTemplate = SwiftOrganicTemplateHello()
-        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        let swiftlangTemplate = SwiftorganicTemplateHello()
+        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
 
@@ -65,8 +65,8 @@ struct SwiftOrganicController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
         
-        let swiftlangTemplate = SwiftOrganicTemplateBlog()
-        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        let swiftlangTemplate = SwiftorganicTemplateBlog()
+        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
     
@@ -77,8 +77,8 @@ struct SwiftOrganicController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Code Blog", "bodyKey": body]
         
-        let swiftlangTemplate = SwiftOrganicTemplateBlog()
-        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        let swiftlangTemplate = SwiftorganicTemplateBlog()
+        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
     
@@ -89,8 +89,8 @@ struct SwiftOrganicController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"MD ➜ HTML Elements", "bodyKey": body]
         
-        let swiftlangTemplate = SwiftOrganicTemplateBlog()
-        let swiftlangRender = try request.make(SwiftOrganicRenderer.self)
+        let swiftlangTemplate = SwiftorganicTemplateBlog()
+        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
 

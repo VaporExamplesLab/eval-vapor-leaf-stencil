@@ -1,5 +1,5 @@
 //
-//  SwiftOrganicTemplate404.swift
+//  SwiftorganicTemplate404.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SwiftOrganicTemplate404: SwiftOrganicTemplate {
+struct SwiftorganicTemplate404: SwiftorganicTemplate {
     
     public func render<E>(context: E) -> String where E: Encodable {
         var templatename = ""

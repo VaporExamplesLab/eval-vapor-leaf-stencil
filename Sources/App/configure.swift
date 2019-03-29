@@ -7,7 +7,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     try services.register(LeafProvider())
     try services.register(StencilProvider())
     try services.register(SwifthtmlProvider())
-    try services.register(SwiftOrganicProvider())
+    try services.register(SwiftorganicProvider())
 
     // Register routes to the router
     let router = EngineRouter.default()

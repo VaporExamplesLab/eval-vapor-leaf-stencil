@@ -1,5 +1,5 @@
 //
-//  SwiftOrganicRenderer.swift
+//  SwiftorganicRenderer.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -8,7 +8,7 @@
 import Foundation
 import Vapor
 
-public final class SwiftOrganicRenderer: ViewRenderer, Service {
+public final class SwiftorganicRenderer: ViewRenderer, Service {
     public var shouldCache: Bool = false // See: ViewRenderer
     /// The event loop this renderer will use to read files
     public let container: Container
@@ -34,19 +34,19 @@ public final class SwiftOrganicRenderer: ViewRenderer, Service {
         _ context: E,
         userInfo: [AnyHashable : Any])
         -> Future<View> where E : Encodable {
-            var template: SwiftOrganicTemplate
+            var template: SwiftorganicTemplate
             switch path {
             case "hello":
-                template = SwiftOrganicTemplateHello()
+                template = SwiftorganicTemplateHello()
             default:
-                template = SwiftOrganicTemplate404()
+                template = SwiftorganicTemplate404()
             }
             
             return render(template: template, context)
     }
     
     public func render<E>(
-        template: SwiftOrganicTemplate,
+        template: SwiftorganicTemplate,
         _ context: E)
         -> Future<View> where E : Encodable {
             let promiseNode: Promise<View> = container.eventLoop.newPromise(View.self)

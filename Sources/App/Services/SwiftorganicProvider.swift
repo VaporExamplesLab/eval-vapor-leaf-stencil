@@ -1,5 +1,5 @@
 //
-//  SwiftOrganicProvider.swift
+//  SwiftorganicProvider.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -9,10 +9,10 @@ import Vapor
 
 /// Provide Swift Organic Template services to a Container.
 ///
-///     try services.register(SwiftOrganicProvider())
+///     try services.register(SwiftorganicProvider())
 ///
-public final class SwiftOrganicProvider: Provider {
-    /// Creates a new `SwiftOrganicProvider`.
+public final class SwiftorganicProvider: Provider {
+    /// Creates a new `SwiftorganicProvider`.
     public init() {}
     
     /// See `Provider`.
@@ -24,8 +24,8 @@ public final class SwiftOrganicProvider: Provider {
         /// Provides access to the `Container` when the `Service` is initialized.
         /// Declares protocol conformance: ViewRenderer.self
         services.register([ViewRenderer.self]) {
-            container -> SwiftOrganicRenderer in
-            return try SwiftOrganicRenderer.init(using: container)
+            container -> SwiftorganicRenderer in
+            return try SwiftorganicRenderer.init(using: container)
         }
     }
     

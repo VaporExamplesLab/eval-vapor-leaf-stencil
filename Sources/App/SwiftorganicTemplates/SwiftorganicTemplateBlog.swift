@@ -1,5 +1,5 @@
 //
-//  SwiftOrganicTemplateBlog.swift
+//  SwiftorganicTemplateBlog.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.27.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SwiftOrganicTemplateBlog: SwiftOrganicTemplate {
+struct SwiftorganicTemplateBlog: SwiftorganicTemplate {
     
     public func render<E>(context: E) -> String where E: Encodable {
         var titleValue = ""
