@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#get(titleKey)</title>
+	<link rel="stylesheet" href="/styles/app.css">
+</head>
+<body>
+    #get(bodyKey)
+
+    <!-- MathJax: https://www.mathjax.org/#gettingstarted -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+</body>
+</html>

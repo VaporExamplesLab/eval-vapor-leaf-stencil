@@ -1,29 +1,29 @@
 //
-//  SwiftorganicTemplate404.swift
+//  SwiftlangTemplateHello.swift
 //  App
 //
-//  Created by marc-medley on 2019.03.21.
+//  Created by marc-medley on 2019.03.20.
 //
 
 import Foundation
 
-struct SwiftorganicTemplate404: SwiftorganicTemplate {
+struct SwiftlangTemplateHello: SwiftlangTemplate {
     
     public func render<E>(context: E) -> String where E: Encodable {
-        var templatename = ""
+        var name = ""
         if let dictionary = context as? [String:String] {
-            templatename = dictionary["templatename"] ?? ""
+            name = dictionary["nameKey"] ?? "it's good to see you"
         }
-
+        
         return """
         <!DOCTYPE html>
         <html>
         <head>
-          <title>404 Not Found</title>
+          <title>\(name)</title>
           <link rel="stylesheet" href="/styles/app.css">
         </head>
         <body>
-          <h1>404 Template \"\(templatename)\" Not Found</h1>
+          <h1>Hello, \(name)!</h1>
           <em>Swift Language Organic Template</em>
         </body>
         </html>

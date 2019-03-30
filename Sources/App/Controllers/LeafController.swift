@@ -37,6 +37,12 @@ struct LeafController: RouteCollection {
 
         // GET /leaf/mdtohtml
         leafRoutes.get("mdtohtml", use: leafMdtohtmlHandler)
+
+        // GET /leaf/test
+        leafRoutes.get("test") {
+            req -> Future<View> in
+            return try req.view().render("test")
+        }
     }
     
     // /leaf

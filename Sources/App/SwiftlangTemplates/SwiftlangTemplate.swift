@@ -1,5 +1,5 @@
 //
-//  SwiftorganicTemplate.swift
+//  SwiftlangTemplate.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.21.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol SwiftorganicTemplate {
+public protocol SwiftlangTemplate {
     func render<E>(context: E) -> String where E: Encodable
 }

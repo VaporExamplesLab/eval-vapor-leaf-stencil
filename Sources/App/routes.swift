@@ -9,8 +9,8 @@ public func routes(_ router: Router) throws {
     router.get {
         (request: Request) -> Future<View> in
         return try request
-            .make(SwiftorganicRenderer.self)
-            .render(template: SwiftorganicTemplateHome(), [String:String]())
+            .make(SwiftlangRenderer.self)
+            .render(template: SwiftlangTemplateIndex(), [String:String]())
     }
 
     // GET /futureView
@@ -53,10 +53,10 @@ public func routes(_ router: Router) throws {
     let stencilController = StencilController(resourcesUrl: resourcesUrl)
     try router.register(collection: stencilController)
 
-    let swiftHtmlController = SwifthtmlController(resourcesUrl: resourcesUrl)
-    try router.register(collection: swiftHtmlController)
+    let swifthtmlController = SwifthtmlController(resourcesUrl: resourcesUrl)
+    try router.register(collection: swifthtmlController)
 
-    let swiftOrganicController = SwiftorganicController(resourcesUrl: resourcesUrl)
-    try router.register(collection: swiftOrganicController)
+    let swiftlangController = SwiftlangController(resourcesUrl: resourcesUrl)
+    try router.register(collection: swiftlangController)
 }
 

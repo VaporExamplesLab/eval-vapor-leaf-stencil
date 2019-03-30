@@ -1,5 +1,5 @@
 //
-//  SwiftorganicController.swift
+//  SwiftlangController.swift
 //  App
 //
 //  Created by marc-medley on 2019.03.19.
@@ -8,7 +8,7 @@
 import Foundation
 import Vapor
 
-struct SwiftorganicController: RouteCollection {
+struct SwiftlangController: RouteCollection {
 
     let htmlPartsUrl: URL
     
@@ -17,33 +17,33 @@ struct SwiftorganicController: RouteCollection {
     }
 
     func boot(router: Router) throws {
-        let swiftlangRoutes = router.grouped("swift-lang")
+        let swiftlangRoutes = router.grouped("swiftlang")
         
-        // GET /swift-lang About page.
+        // GET /swiftlang About page.
         swiftlangRoutes.get {
             (request: Request) -> Future<View> in
             return try request
-                .make(SwiftorganicRenderer.self)
-                .render(template: SwiftorganicTemplateAbout(), [String:String]())
+                .make(SwiftlangRenderer.self)
+                .render(template: SwiftlangTemplateAbout(), [String:String]())
         }
         
-        // GET /swift-lang/hello
+        // GET /swiftlang/hello
         swiftlangRoutes.get("hello", use: swiftlangHelloHandler)
         
-        // GET /swift-lang/hello/name
+        // GET /swiftlang/hello/name
         swiftlangRoutes.get("hello", String.parameter, use: swiftlangHelloHandler)
         
-        // GET /swift-lang/latexmath
+        // GET /swiftlang/latexmath
         swiftlangRoutes.get("latexmath", use: swiftlangMathHandler)
         
-        // GET /swift-lang/codeblog
+        // GET /swiftlang/codeblog
         swiftlangRoutes.get("codeblog", use: swiftlangCodeblogHandler)
         
-        // GET /swift-lang/mdtohtml
+        // GET /swiftlang/mdtohtml
         swiftlangRoutes.get("mdtohtml", use: swiftlangMdtohtmlHandler)
     }
     
-    // GET /swift-lang/hello/name
+    // GET /swiftlang/hello/name
     func swiftlangHelloHandler(_ request: Request) throws -> Future<View> {
         var context: [String: String] = [:]
         if let name = try? request.parameters.next(String.self) {
@@ -53,8 +53,8 @@ struct SwiftorganicController: RouteCollection {
             context["nameKey"] = "glad you could stop by"
         }
         
-        let swiftlangTemplate = SwiftorganicTemplateHello()
-        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
+        let swiftlangTemplate = SwiftlangTemplateHello()
+        let swiftlangRender = try request.make(SwiftlangRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
 
@@ -65,8 +65,8 @@ struct SwiftorganicController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
         
-        let swiftlangTemplate = SwiftorganicTemplateBlog()
-        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
+        let swiftlangTemplate = SwiftlangTemplateBlog()
+        let swiftlangRender = try request.make(SwiftlangRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
     
@@ -77,8 +77,8 @@ struct SwiftorganicController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Code Blog", "bodyKey": body]
         
-        let swiftlangTemplate = SwiftorganicTemplateBlog()
-        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
+        let swiftlangTemplate = SwiftlangTemplateBlog()
+        let swiftlangRender = try request.make(SwiftlangRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
     
@@ -89,8 +89,8 @@ struct SwiftorganicController: RouteCollection {
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"MD ➜ HTML Elements", "bodyKey": body]
         
-        let swiftlangTemplate = SwiftorganicTemplateBlog()
-        let swiftlangRender = try request.make(SwiftorganicRenderer.self)
+        let swiftlangTemplate = SwiftlangTemplateBlog()
+        let swiftlangRender = try request.make(SwiftlangRenderer.self)
         return swiftlangRender.render(template: swiftlangTemplate, context)
     }
 
