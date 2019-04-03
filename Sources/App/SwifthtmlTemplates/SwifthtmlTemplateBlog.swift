@@ -30,7 +30,7 @@ struct SwifthtmlTemplateBlog: SwifthtmlTemplate {
                 body([
                     Node.raw("\(bodyValue)"),
                     br,
-                    p([em(["Swift-HTML Template"])])
+                    p([em(["swift-html Template"])])
                     ]) // end body
                 ]) // end html
         return node

@@ -24,7 +24,7 @@ struct SwiftlangTemplateHello: SwiftlangTemplate {
         </head>
         <body>
           <h1>Hello, \(name)!</h1>
-          <em>Swift Language Organic Template</em>
+          <em>Swift Language (organic) Template</em>
         </body>
         </html>
         """

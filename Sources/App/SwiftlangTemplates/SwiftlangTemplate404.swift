@@ -24,7 +24,7 @@ struct SwiftlangTemplate404: SwiftlangTemplate {
         </head>
         <body>
           <h1>404 Template \"\(templatename)\" Not Found</h1>
-          <em>Swift Language Organic Template</em>
+          <em>Swift Language (organic) Template</em>
         </body>
         </html>
         """

@@ -1,4 +1,4 @@
-# Swift-HTML Domain Specific Language (DSL)
+# swift-html Domain Specific Language (DSL)
 
 <p align="center">
     <a href="http://docs.vapor.codes/3.0/">
@@ -12,7 +12,7 @@
     </a>
 </p>
 
-* Page: [README](../README.md), [Leaf](Leaf.md), [Stencil](Stencil.md), Swift-HTML, [Swift Language Organic](Swiftlang.md)  
+* Page: [README](../README.md), [Leaf](Leaf.md), [Stencil](Stencil.md), swift-html, [Swift Language (organic)](Swiftlang.md)  
 * Section: <a id="toc"></a>
 [Resources](#linkResources)
 

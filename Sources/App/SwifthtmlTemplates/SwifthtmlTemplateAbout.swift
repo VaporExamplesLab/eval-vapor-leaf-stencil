@@ -48,17 +48,17 @@ struct SwifthtmlTemplateAbout: SwifthtmlTemplate {
             html([
                 head([
                     style(stylesheet),
-                    title("About Swift-HTML")
+                    title("About swift-html")
                     ]),
                 
                 body([
                     h1([Node.text("swift-html-vapor")]),
                     h2(["Type-safe Vapor HTML"]),
                     p(["""
-                Swift-HTML Domain Specific Language allows you to write
+                swift-html Domain Specific Language allows you to write
                 type-safe, transformable, composable HTML views in a Vapor app!
 
-                Swift-HTML DSL
+                swift-html DSL
                 """]),
                     blockquote([
                         "A Vapor plugin for type-safe, transformable HTML views using ",

@@ -22,7 +22,7 @@ struct SwiftlangTemplateAbout: SwiftlangTemplate {
         <p><strong>Basic. Minimal. String. Example.</strong></p>
         <p>Templates written directly with Swift <strong>String</strong>. No dependency on any external Swift Package.</p>
         <br>
-        <p><em>Swift Language Organic Template</em></p>
+        <p><em>Swift Language (organic) Template</em></p>
         </body>
         </html>
         """

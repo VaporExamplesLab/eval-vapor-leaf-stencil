@@ -1,6 +1,6 @@
-#set("titleKey") {About Leaf}
+#set("baseTitleKey") {About Leaf}
 
-#set("bodyKey") {
+#set("baseBodyKey") {
 	<div class="welcome">
         <h3><a href="https://github.com/vapor/leaf">Leaf</a>, an extensible templating language built for Swift.</h3>
 		<img src="/images/it-works.png">

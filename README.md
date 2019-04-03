@@ -12,7 +12,7 @@
     </a>
 </p>
 
-* Page: README, [Leaf](READ_PAGES/Leaf.md), [Stencil](READ_PAGES/Stencil.md), [Swift-HTML](READ_PAGES/Swifthtml.md), [Swift Language Organic](READ_PAGES/Swiftlang.md) 
+* Page: README, [Leaf](READ_PAGES/Leaf.md), [Stencil](READ_PAGES/Stencil.md), [swift-html](READ_PAGES/Swifthtml.md), [Swift Language (organic)](READ_PAGES/Swiftlang.md) 
 * Section: <a id="toc"></a>
 [Approach](#linkApproach) •
 [Cases](#linkCases) •
@@ -21,27 +21,27 @@
 [Preliminary Setup](#linkPreliminarySetup) •
 [Resources](#linkResources)
 
-_The `eval-vapor-leaf-stencil` Vapor project provides some select HTML templating examples with Leaf, Stencil, Swift-HTML DSL (Domain Specific Language), and Swift Programming Language (organic)._
+_The `eval-vapor-leaf-stencil` Vapor project provides some select HTML templating examples with Leaf, Stencil, swift-html DSL (Domain Specific Language), and Swift Programming Language (organic)._
 
 ## Approach <a id="linkApproach"></a>
 
-All approaches are setup to use the SwiftNIO `EventLoopFuture<ResponseEncodable>` (_typealias_ `Future<ResponseEncodable>`).  Three approaches (leaf, stencil, swift-lang) render a `View` for the `ResponseEncodable`. The swift-html renders a `Html.Node` for the `ResponseEncodable`.
+All approaches are setup to use the SwiftNIO `EventLoopFuture<ResponseEncodable>` (_typealias_ `Future<ResponseEncodable>`).  Three approaches (leaf, stencil, swiftlang) render a `View` for the `ResponseEncodable`. The swift-html renders a `Html.Node` for the `ResponseEncodable`.
 
 **Leaf** `/leaf/…`
 
 **Stencil** `/stencil/…`
 
-**Swift-HTML DSL** `/swift-html/…`
+**swift-html DSL** `/swift-html/…`
 
 This approach extends `Html.Node` to be `ResponseEncodable`. Thus, the theses templates are rendered into an `Html.Node` instead of as a `View`.
 
-**Swift Organic** `/swift-lang/…`
+**Swift Organic** `/swiftlang/…`
 
-"Swift Organic" uses the Swift Programming Language `swift-lang` without any additional templating packages.  This approach assembles a Swift String which is rendered to a Vapor `ResponseEncodable` `View`. 
+"Swift Organic" uses the Swift Programming Language `swiftlang` without any additional templating packages.  This approach assembles a Swift String which is rendered to a Vapor `ResponseEncodable` `View`. 
 
 ## Cases <a id="linkCases"></a>
 
-For each use case, replace `/<approach>` with one of `/leaf`, `/stencil`, `/swift-html`, or `/swift-lang` in the URL `localhost:8080/<approach>/<usecase>` URL.  For example, the Leaf approach URL for the "Hello" use case would be `localhost:8080/hello/Sunshine`.
+For each use case, replace `/<approach>` with one of `/leaf`, `/stencil`, `/swift-html`, or `/swiftlang` in the URL `localhost:8080/<approach>/<usecase>` URL.  For example, the Leaf approach URL for the "Hello" use case would be `localhost:8080/hello/Sunshine`.
 
 **About** `/<approach>`
 

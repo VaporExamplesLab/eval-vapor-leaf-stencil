@@ -24,7 +24,7 @@ struct SwifthtmlTemplate404: SwifthtmlTemplate {
             
             body([
                 h1([Node.text("404 Not Found [\(templatename)]")]),
-                p([em(["Swift-HTML Template"])])
+                p([em(["swift-html Template"])])
                 ]) // end body
             ]) // end html
         return node

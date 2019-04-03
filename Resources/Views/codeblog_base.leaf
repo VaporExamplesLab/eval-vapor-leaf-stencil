@@ -1,0 +1,16 @@
+#set("baseTitleKey") {-#get(titleKey)-}
+
+#set("baseHeadKey") {
+  <!-- highlight.js: https://highlightjs.org -->
+  <link rel="stylesheet" href="/path/to/styles/default.css">
+  <script src="/path/to/highlight.pack.js" async></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+}
+
+#set("baseBodyKey") {
+  #get(bodyKey)
+
+  <em>Leaf CodeBlog Template</em>
+}
+
+#embed("base")

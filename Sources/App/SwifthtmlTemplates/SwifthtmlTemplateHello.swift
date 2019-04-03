@@ -24,7 +24,7 @@ struct SwifthtmlTemplateHello: SwifthtmlTemplate {
             
             body([
                 h1([Node.text("Hello, \(name)!")]),
-                p([em(["Swift-HTML Template"])])
+                p([em(["swift-html Template"])])
                 ]) // end body
             ]) // end html
         return node

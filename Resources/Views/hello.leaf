@@ -1,7 +1,7 @@
-#set("titleKey") {Hello, #(nameKey)!}
+#set("baseTitleKey") {Hello, #(nameKey)!}
 
-#set("bodyKey") {
-	<h1>Hello, #(nameKey)!</h1>
+#set("baseBodyKey") {
+	<h1>Hello, #(nameKey)!#/* inline comment */</h1>
     <em>Leaf Template</em>
 }
 

@@ -1,9 +1,0 @@
-#set("titleKey") {Test Leaf}
-
-#set("bodyKey") {
-    <p>Two equations: \(A^T_S = B\) and \(\sqrt{ab}\).</p>
-    <p>\[A^T_S = B\]  </p>
-    <p>\[\sqrt{ab}\]  </p>
-}
-
-#embed("base_test")

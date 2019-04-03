@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>#get(titleKey)</title>
-	<link rel="stylesheet" href="/styles/app.css">
-</head>
-<body>
+#set("baseTitleKey") {-#get(titleKey)-}
+
+#set("baseBodyKey") {
     #get(bodyKey)
+
+    <em>Leaf Math Template</em>
 
     <!-- MathJax: https://www.mathjax.org/#gettingstarted -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-</body>
-</html>
+}
+
+#embed("math_base")

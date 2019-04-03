@@ -7,7 +7,7 @@
 
 import Vapor
 
-/// Provide Swift Language Organic Template services to a Container.
+/// Provide Swift Language (organic) Template services to a Container.
 ///
 ///     try services.register(SwiftlangProvider())
 ///

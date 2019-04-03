@@ -32,16 +32,46 @@ struct LeafController: RouteCollection {
         // GET /leaf/latexmath
         leafRoutes.get("latexmath", use: leafMathHandler)
 
+        // GET /leaf/latexmath_inline
+        leafRoutes.get("latexmath_inline") {
+            req -> Future<View> in
+            return try req.view().render("latexmath_inline")
+        }
+
+        // GET /leaf/latexmath_single
+        leafRoutes.get("latexmath_single") {
+            req -> Future<View> in
+            return try req.view().render("latexmath_single")
+        }
+        
         // GET /leaf/codeblog
         leafRoutes.get("codeblog", use: leafCodeblogHandler)
+
+        // GET /leaf/codeblog_inline
+        leafRoutes.get("codeblog_inline") {
+            req -> Future<View> in
+            return try req.view().render("codeblog_inline")
+        }
+        
+        // GET /leaf/codeblog_single
+        leafRoutes.get("codeblog_single") {
+            req -> Future<View> in
+            return try req.view().render("codeblog_single")
+        }
 
         // GET /leaf/mdtohtml
         leafRoutes.get("mdtohtml", use: leafMdtohtmlHandler)
 
-        // GET /leaf/test
-        leafRoutes.get("test") {
+        // GET /leaf/codeblog_inline
+        leafRoutes.get("mdtohtml_inline") {
             req -> Future<View> in
-            return try req.view().render("test")
+            return try req.view().render("mdtohtml_inline")
+        }
+        
+        // GET /leaf/mdtohtml_single
+        leafRoutes.get("mdtohtml_single") {
+            req -> Future<View> in
+            return try req.view().render("mdtohtml_single")
         }
     }
     
@@ -65,10 +95,10 @@ struct LeafController: RouteCollection {
     // GET /leaf/latexmath
     func leafMathHandler(_ request: Request) throws -> Future<View> {
         let body = try String(
-            contentsOf: htmlPartsUrl.appendingPathComponent("math.html", isDirectory: false),
+            contentsOf: htmlPartsUrl.appendingPathComponent("latexmath.html", isDirectory: false),
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
-        return try request.make(ViewRenderer.self).render("base_blog", context)
+        return try request.make(ViewRenderer.self).render("latexmath_base", context) // :WAS: base_blog
     }
     
     // GET /leaf/codeblog

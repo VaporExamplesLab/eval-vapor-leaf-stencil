@@ -1,0 +1,9 @@
+#set("titleKey") {Leaf Code Blog Inline}
+
+#set("bodyKey") {
+<!-- :TODO:!!!: -->
+
+    <em>Leaf CodeBlog Template</em>
+}
+
+#embed("codeblog_base")

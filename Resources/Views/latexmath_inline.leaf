@@ -1,0 +1,9 @@
+#set("titleKey") {Leaf Math Inline}
+
+#set("bodyKey") {
+  <p>Two equations: \(A^T_S = B\) and \(\sqrt{ab}\).</p>
+  <p>\[A^T_S = B\]  </p>
+  <p>\[\sqrt{ab}\]  </p>
+}
+
+#embed("latexmath_base")

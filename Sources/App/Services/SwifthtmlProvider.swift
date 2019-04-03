@@ -7,7 +7,7 @@
 
 import Vapor
 
-/// Provide Swift-HTML DSL services to a Container.
+/// Provide swift-html DSL services to a Container.
 ///
 ///     try services.register(SwifthtmlProvider())
 ///

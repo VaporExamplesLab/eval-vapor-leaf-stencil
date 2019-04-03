@@ -64,7 +64,7 @@ struct SwifthtmlController: RouteCollection {
     // GET /swift-html/latexmath
     func swifthtmlMathHandler(_ request: Request) throws -> Future<Html.Node> {
         let body = try String(
-            contentsOf: htmlPartsUrl.appendingPathComponent("math.html", isDirectory: false),
+            contentsOf: htmlPartsUrl.appendingPathComponent("latexmath.html", isDirectory: false),
             encoding: String.Encoding.utf8)
         let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
         

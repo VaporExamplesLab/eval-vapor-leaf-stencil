@@ -13,9 +13,10 @@ let package = Package(
         // Stencil
         .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.13.1"),
         
-        // Swift-HTML Domain Specific Language (DSL)
+        // swift-html Domain Specific Language (DSL)
         // "0.2.1" Swift 4.2 
         // "0.3.0" Swift 5.0
+        // "0.3.1" Swift 4.2 & 5.0? not yet due to dependency.
         .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.2.1")
     ],
     targets: [

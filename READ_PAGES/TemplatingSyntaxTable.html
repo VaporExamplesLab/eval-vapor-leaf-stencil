@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Public/prismjs/prism.css" />
+    <link rel="stylesheet" href="../Public/styles/app.css" />
+    <title>Templating Syntax Table</title>
+</head>
+<body>
+
+<h1>Templating Syntax Table</h1>
+
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars (Mustache "superset")</th>
+<th>Stencil</th>
+</tr>
+
+<!-- ** COMMENTS ** -->
+<tr>
+<th>Comments</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars">
+#// single line comment.
+
+#/* in-line, or
+  multiline comment.
+*/</code></pre>
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars">
+{{!   comment.   }}
+{{!-- comment. --}}
+</code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<pre><code class="lang-handlebars">
+{# comment. #}
+</code></pre>
+</td>
+<!-- ** VARIABLE ** -->
+<tr>
+<th>Variables</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars">
+#(someContextKey)
+
+#set(&quot;someKey&quot;) { 
+  Stored in context.
+}
+</code></pre>
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars">
+{{variable}}
+{{author.name}}
+</code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<pre><code class="lang-handlebars">
+{{ variable }}
+{{ peoplelist.count }}
+{{ peoplelist.1 }}, {{peoplelist[1]}}
+{{ author.name  }}, {{author[name]}} </code></pre>
+<ul>
+<li>Context lookup</li>
+<li>Dictionary lookup</li>
+<li>Array|string lookup (first, last, count, by index)</li>
+<li>Key value coding lookup</li>
+<li>Type introspection (via Mirror)</li>
+</ul>
+</td>
+</tr>
+<!-- ** CONDITIONAL ** -->
+<tr>
+<th>Conditional</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars">
+#if(title) {
+    The title is #(title)
+} 
+
+#if(title == &quot;Welcome&quot;) {
+    About web page.
+} else if (1 == 2) {
+    What?
+} else {
+    Something else.
+}</code></pre>
+operators: +, &gt;, ==, ||, ...
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars">
+&lt;div class=&quot;entry&quot;&gt;
+  {{#if author}}
+    &lt;h1&gt;{{firstName}} {{lastName}}&lt;/h1&gt;
+  {{else}}
+    &lt;h1&gt;Unknown Author&lt;/h1&gt;
+  {{/if}}
+&lt;/div&gt;
+
+&lt;div class=&quot;entry&quot;&gt;
+  {{#unless author}}
+  &lt;h3 class=&quot;warning&quot;&gt;Author not provided.&lt;/h3&gt;
+  {{/unless}}
+&lt;/div&gt;
+</code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<pre><code class="lang-handlebars">{% if variable %}
+  {{ variable }} was found.
+{% elif user %}
+  A user is logged in.
+{% else %}
+  No user was found.
+{% endif %}</code></pre>
+operators: ==, !=, &lt;, &lt;=, &gt;, and, or, not
+</td>
+</tr>
+<!-- ** FOR LOOP ** -->
+<tr>
+<th>Loop</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars">&lt;ul class=&quot;paragraph_list&quot;&gt;
+  {{#each paragraphs}}
+    &lt;p&gt;{{this}}&lt;/p&gt;
+  {{else}}
+    &lt;p class=&quot;empty&quot;&gt;No content&lt;/p&gt;
+  {{/each}}
+&lt;/ul&gt;</code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<pre><code class="lang-handlebars">&lt;ul&gt;
+  {% for item in items %}
+    &lt;li&gt;{{ item.a }} by {{ item.a }}&lt;/li&gt;
+  {% empty %}
+    &lt;li&gt;There are no items.&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  {% for key, value in dict %}
+    &lt;li&gt;{{ key }}: {{ value }}&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+
+{% for i in 1...array.count %}
+{% for user in users where user.a != &quot;z&quot; %}</code></pre>
+<p><code class="lang-handlebars">forloop</code> variables: first, last, counter, counter0, length</p>
+<pre><code class="lang-handlebars">{% for user in users %}
+  User number: {{ forloop.counter }} 
+  {% if forloop.first %}
+    This is the first user.
+  {% endif %}
+{% endfor %}</code></pre>
+</td>
+</tr>
+<!-- ** INCLUDES ** -->
+<tr>
+<th>Includes</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<pre><code class="lang-handlebars">{% include &quot;file.html&quot; %}
+{% include &quot;file.html&quot; subcontext %}</code></pre>
+</td>
+</tr>
+<!-- ** BLOCK ** -->
+<tr>
+<th>Inheritance</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<p><em>parent.html</em></p>
+<pre><code class="lang-handlebars">{% block namedBlock %}
+&lt;!-- parent content here --&gt;
+{% endblock %}</code></pre>
+<p><em>child.html</em></p>
+<pre><code class="lang-handlebars">{% extends &quot;parent.html&quot; %}
+
+{% block namedBlock %}
+  &lt;h2&gt;replaces parent content&lt;/h2&gt;
+{% endblock %}</code></pre>
+</td>
+</tr>
+<!-- ** TEMPLATE ** -->
+<tr>
+<th>…</th>
+<!--LEAF-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--HANDLEBARS-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+<!--STENCIL-->
+<td>
+<pre><code class="lang-handlebars"></code></pre>
+</td>
+</tr>
+</table>
+
+<script src="../Public/prismjs/prism.js"></script>
+</body>
+</html>

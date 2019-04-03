@@ -15,3 +15,21 @@ div.welcome img {
   	top: 50%;
 	width: 300px;
 }
+
+code, pre {
+	font-family: 'DejaVu Sans Mono', Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 0.9em;
+	line-height: 1.25;
+}
+
+td {
+    vertical-align:top;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 0.25px solid black;
+}

@@ -1,0 +1,14 @@
+#set("baseTitleKey") {-#get(titleKey)-}
+
+#set("baseHeadKey") {
+    <!-- MathJax: https://www.mathjax.org/#gettingstarted -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+}
+
+#set("baseBodyKey") {
+    #get(bodyKey)
+
+    <em>Leaf Math Template</em>
+}
+
+#embed("base")

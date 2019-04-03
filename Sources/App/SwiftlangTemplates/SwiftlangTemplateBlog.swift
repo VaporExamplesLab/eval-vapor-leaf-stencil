@@ -64,7 +64,7 @@ struct SwiftlangTemplateBlog: SwiftlangTemplate {
         <!-- base_footer: END PAGE CONTENT HERE -->
         
         <br>
-        <p><em>Swift Language Organic Template</em></p>
+        <p><em>Swift Language (organic) Template</em></p>
         </div>
         </main>
 
