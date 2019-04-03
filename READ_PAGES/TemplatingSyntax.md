@@ -35,16 +35,20 @@
 </td>
 <!--HANDLEBARS-->
 <td>
+
 ```handlebars
 {{!   comment.   }}
 {{!-- comment. --}}
 ```
+
 </td>
 <!--STENCIL-->
 <td>
+
 ```handlebars
 {# comment. #}
 ```
+
 </td>
 </table>
 
