@@ -9,6 +9,45 @@
 
 **Comments**
 
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars (Mustache "superset")</th>
+<th>Stencil</th>
+</tr>
+
+<!-- ** COMMENTS ** -->
+<tr>
+<th>Comments</th>
+<!--LEAF-->
+<td>
+
+```html
+#// single line comment.
+
+#/* in-line, or
+  multiline comment.
+*/
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+```handlebars
+{{!   comment.   }}
+{{!-- comment. --}}
+```
+</td>
+<!--STENCIL-->
+<td>
+```handlebars
+{# comment. #}
+```
+</td>
+</table>
+
 * Leaf: Mixed syntax types. Both line-based syntax and block-based based syntax.
 
 * Handlebars: block-based syntax.
