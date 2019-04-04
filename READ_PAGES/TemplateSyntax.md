@@ -107,7 +107,7 @@ Costs:
 | | Leaf 3 | Handlebars<br>(Mustache) | Stencil |
 |--------------------------------------------|:-:|:-:|:-:|
 | Swift Implementation (active maintenance)  | ✓ | ✓ | ✓ |
-| Non-Swift Implementations                  |   | ✓ |   |
+| Non-Swift Implementations                  |   | ✓ | django |
 | Fully Block-Based (no line-based syntax)   |   | ✓ | ✓ |
 | Boundary Delimiters use 2 or more ASCII char |   | ✓ | ✓ |
 | Minimal Strong, Symmetric Boundary Pattern |   |   | ✓ |
