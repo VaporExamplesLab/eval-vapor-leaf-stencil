@@ -33,11 +33,53 @@ struct StencilController: RouteCollection {
         // GET /stencil/latexmath
         stencilRoutes.get("latexmath", use: stencilMathHandler)
 
+        // GET /stencil/latexmath_inline
+        stencilRoutes.get("latexmath_inline") {
+            request -> Future<View> in
+            let stencilRender = try request.make(StencilRenderer.self)
+            return stencilRender.render("latexmath_inline.html", [:])
+        }
+        
+        // GET /stencil/latexmath_single
+        stencilRoutes.get("latexmath_single") {
+            request -> Future<View> in
+            let stencilRender = try request.make(StencilRenderer.self)
+            return stencilRender.render("latexmath_single.html", [:])
+        }
+        
         // GET /stencil/codeblog
         stencilRoutes.get("codeblog", use: stencilCodeblogHandler)
 
+        // GET /stencil/codeblog_inline
+        stencilRoutes.get("codeblog_inline") {
+            request -> Future<View> in
+            let stencilRender = try request.make(StencilRenderer.self)
+            return stencilRender.render("codeblog_inline.html", [:])
+        }
+        
+        // GET /stencil/codeblog_single
+        stencilRoutes.get("codeblog_single") {
+            request -> Future<View> in
+            let stencilRender = try request.make(StencilRenderer.self)
+            return stencilRender.render("codeblog_single.html", [:])
+        }
+        
         // GET /stencil/mdtohtml
         stencilRoutes.get("mdtohtml", use: stencilMdtohtmlHandler)
+        
+        // GET /stencil/codeblog_inline
+        stencilRoutes.get("mdtohtml_inline") {
+            request -> Future<View> in
+            let stencilRender = try request.make(StencilRenderer.self)
+            return stencilRender.render("mdtohtml_inline.html", [:])
+        }
+        
+        // GET /stencil/mdtohtml_single
+        stencilRoutes.get("mdtohtml_single") {
+            request -> Future<View> in
+            let stencilRender = try request.make(StencilRenderer.self)
+            return stencilRender.render("mdtohtml_single.html", [:])
+        }
     }
     
     // func handler(_ request: Request) -> ResponseEncodable { }
@@ -83,7 +125,7 @@ struct StencilController: RouteCollection {
         let context: [String: String] = ["titleKey":"Math Presentation", "bodyKey": body]
         
         let stencilRender = try request.make(StencilRenderer.self)
-        return stencilRender.render("base_blog.html", context)
+        return stencilRender.render("latexmath_base.html", context)
     }
     
     // GET /stencil/codeblog
@@ -94,7 +136,7 @@ struct StencilController: RouteCollection {
         let context: [String: String] = ["titleKey":"Code Blog", "bodyKey": body]
         
         let stencilRender = try request.make(StencilRenderer.self)
-        return stencilRender.render("base_blog.html", context)
+        return stencilRender.render("codeblog_base.html", context)
     }
     
     // GET /stencil/mdtohtml
@@ -105,7 +147,7 @@ struct StencilController: RouteCollection {
         let context: [String: String] = ["titleKey":"MD ➜ HTML Elements", "bodyKey": body]
         
         let stencilRender = try request.make(StencilRenderer.self)
-        return stencilRender.render("base_blog.html", context)
+        return stencilRender.render("mdtohtml_base.html", context)
     }
     
 }

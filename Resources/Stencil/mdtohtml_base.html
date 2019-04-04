@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block baseHeadBlock %}
+<!-- Bootstrap CSS -->
+<!-- Bootswatch Themes -->
+<!-- Cerulean: calm blue sky -->
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css"
+integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP"
+crossorigin="anonymous" />
+
+<!-- Highlight.js -->
+<!-- reference: https://highlightjs.org/download/ -->
+<link rel="stylesheet"
+href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css"/>
+
+<!-- MathJax -->
+<!-- https://www.mathjax.org/#gettingstarted -->
+<!-- config=TeX-MML-AM_CHTML (standard) | config=TeX-AMS_SVG (SVG)-->
+<!-- script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG" async></script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_SVG" async>
+    </script>
+{% endblock %}
+
+{% block baseTitleBlock %}-{{titleKey}}-{% endblock %}
+
+{% block baseBodyBlock %}
+{{bodyKey}}
+
+<em>Stencil MdToHtml Template</em>
+{% endblock %}
+

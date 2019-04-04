@@ -2,11 +2,11 @@
 <html lang="en" class="h-100">
 <head>
     <!-- Bootstrap required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Other metadata -->
-    <meta name="description" content="">
-    <meta name="author" content="VaporExamplesLab">
+    <meta name="description" content=""/>
+    <meta name="author" content="VaporExamplesLab"/>
 
     <!-- Bootstrap CSS -->
     <!-- Bootswatch Themes -->
@@ -14,15 +14,12 @@
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css"
           integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP"
-          crossorigin="anonymous" >
+          crossorigin="anonymous" />
 
     <!-- Highlight.js -->
     <!-- reference: https://highlightjs.org/download/ --> 
     <link rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
-
-    <!-- Custom styles overriding CSS -->
-    <link rel="stylesheet" href="/styles/app.css">
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css"/>
 
     <!-- MathJax -->
     <!-- https://www.mathjax.org/#gettingstarted -->
@@ -31,7 +28,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_SVG" async>
     </script>
 
-	<title>#get(titleKey)</title>
+    <!-- Custom styles overriding CSS -->
+    <link rel="stylesheet" href="/styles/app.css"/>
+
+	<title>Leaf MdToHtml (single file)</title>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -42,7 +42,7 @@
      flex-shrink-0: do not shrink keep. bottom menu in place -->
 <main role="main" class="flex-shrink-0">
 <div class="container mt-0">
-    #get(bodyKey)
+    <!-- :TODO: Add Content -->
 </div>
 </main>
 

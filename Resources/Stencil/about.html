@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block titleBlock %}About Stencil{% endblock %}
+{% block baseTitleBlock %}About Stencil{% endblock %}
 
-{% block bodyBlock %}
+{% block baseBodyBlock %}
 
     <article>
     
@@ -12,7 +12,7 @@
         {% block sectionBlock %}
         <h4>Example List:</h4>
         
-        This list has {{ booksKey.count }} books.
+        This list has {{ booksKey.count }} books. :-)
         
         <ul>
             {% for book in booksKey %}

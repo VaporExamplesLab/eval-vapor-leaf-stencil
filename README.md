@@ -12,7 +12,7 @@
     </a>
 </p>
 
-* Page: README, [Leaf](READ_PAGES/Leaf.md), [Stencil](READ_PAGES/Stencil.md), [swift-html](READ_PAGES/Swifthtml.md), [Swift Language (organic)](READ_PAGES/Swiftlang.md) 
+* Page: README, [Leaf](READ_PAGES/Leaf.md), [Stencil](READ_PAGES/Stencil.md), [swift-html](READ_PAGES/Swifthtml.md), [Swift Language (organic)](READ_PAGES/Swiftlang.md), [Template Syntax](READ_PAGES/TemplateSyntax.md) 
 * Section: <a id="toc"></a>
 [Approach](#linkApproach) •
 [Cases](#linkCases) •
@@ -108,8 +108,6 @@ vapor update -y
 
 * [GitHub/pointfreeco: swift-html ⇗](https://github.com/pointfreeco/swift-html)
 * [GitHub/pointfreeco: swift-html-vapor ⇗](https://github.com/pointfreeco/swift-html-vapor)
-
-*Discussion*
 
 
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
   #get(baseHeadKey)
-  <link rel="stylesheet" href="/styles/app.css">
+  <link rel="stylesheet" href="/styles/app.css"/>
   <title>#get(baseTitleKey)</title>
 </head>
 <body>

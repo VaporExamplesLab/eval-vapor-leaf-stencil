@@ -12,7 +12,7 @@
     </a>
 </p>
 
-* Page: [README](../README.md), [Leaf](Leaf.md), [Stencil](Stencil.md), swift-html, [Swift Language (organic)](Swiftlang.md)  
+* Page: [README](../README.md), [Leaf](Leaf.md), [Stencil](Stencil.md), swift-html, [Swift Language (organic)](Swiftlang.md), [Template Syntax](TemplateSyntax.md)  
 * Section: <a id="toc"></a>
 [Resources](#linkResources)
 

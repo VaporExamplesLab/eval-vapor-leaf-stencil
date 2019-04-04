@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset=utf-8>
-    <link rel="stylesheet" href="/styles/app.css">
+    <meta charset=utf-8/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Other metadata -->
+    <meta name="description" content=""/>
+    <meta name="author" content="VaporExamplesLab"/>
 
-    <title>{% block titleBlock %}{{ titleKey|default:"Base Title" }}{% endblock %}</title>
+    {% block baseHeadBlock %}{% endblock %}
+
+    <!-- Custom styles overriding CSS -->
+    <link rel="stylesheet" href="/styles/app.css"/>
+    
+    <title>{% block baseTitleBlock %}{{ baseTitleKey|default:"Base Title" }}{% endblock %}</title>
 </head>
 <body>
-    {% block bodyBlock %}{% endblock %}
+    {% block baseBodyBlock %}Base content.{% endblock %}
 </body>
 </html>
