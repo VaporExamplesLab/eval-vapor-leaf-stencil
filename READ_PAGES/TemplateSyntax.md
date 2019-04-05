@@ -33,7 +33,6 @@ Handlebars is used in the side-by-side syntax comparison tables below. Handlebar
 <th>Stencil</th>
 </tr>
 
-<!-- ** COMMENTS ** -->
 <tr>
 <th>Comments</th>
 <!--LEAF-->
@@ -59,7 +58,7 @@ Handlebars is used in the side-by-side syntax comparison tables below. Handlebar
 <!--STENCIL-->
 <td>
 
-```handlebars
+```django
 {# comment. #}
 ```
 
@@ -81,10 +80,322 @@ Handlebars is used in the side-by-side syntax comparison tables below. Handlebar
 
 **Variables**
 
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars<br>(Mustache)</th>
+<th>Stencil</th>
+</tr>
+
+<tr>
+<th>Variables</th>
+<!--LEAF-->
+<td>
+
+```html
+#(someContextKey)
+
+#set("someKey") { 
+  Stored in context.
+}
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+
+```handlebars
+{{variable}}
+{{author.name}}
+```
+
+</td>
+<!--STENCIL-->
+<td>
+
+```django
+{{ variable }}
+{{ peoplelist.count }}
+{{ peoplelist.1 }}, {{peoplelist[1]}}
+{{ author.name  }}, {{author[name]}}
+```
+
+<ul>
+<li>Context lookup</li>
+<li>Dictionary lookup</li>
+<li>Array|string lookup (first, last, count, by index)</li>
+<li>Key value coding lookup</li>
+<li>Type introspection (via Mirror)</li>
+</ul>
+
+</td>
+</table>
 
 
-**Conditions**
+**Conditional**
 
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars<br>(Mustache)</th>
+<th>Stencil</th>
+</tr>
+
+<tr>
+<th>Conditional</th>
+<!--LEAF-->
+<td>
+
+```html
+#if(title) {
+    The title is #(title)
+} 
+
+#if(title == "Welcome") {
+    About web page.
+} else if (1 == 2) {
+    What?
+} else {
+    Something else.
+}
+
+operators: +, >, ==, ||, ...
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+
+```handlebars
+<div class="entry">
+  {{#if author}}
+    <h1>{{firstName}} {{lastName}}</h1>
+  {{else}}
+    <h1>Unknown Author</h1>
+  {{/if}}
+</div>
+
+<div class="entry">
+  {{#unless author}}
+  <h3 class="warning">Author not provided.</h3>
+  {{/unless}}
+</div>
+```
+
+</td>
+<!--STENCIL-->
+<td>
+
+```django
+{% if variable %}
+  {{ variable }} was found.
+{% elif user %}
+  A user is logged in.
+{% else %}
+  No user was found.
+{% endif %}
+```
+
+operators: ==, !=, <, <=, >, and, or, not
+
+</td>
+</table>
+
+**Loop**
+
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars<br>(Mustache)</th>
+<th>Stencil</th>
+</tr>
+
+<tr>
+<th>Loop</th>
+<!--LEAF-->
+<td>
+
+```html
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+
+```handlebars
+<ul class="paragraph_list">
+  {{#each paragraphs}}
+    <p>{{this}}</p>
+  {{else}}
+    <p class="empty">No content</p>
+  {{/each}}
+</ul>
+
+```
+
+</td>
+<!--STENCIL-->
+<td>
+
+```django
+<ul>
+  {% for item in items %}
+    <li>{{ item.a }} by {{ item.a }}</li>
+  {% empty %}
+    <li>There are no items.</li>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for key, value in dict %}
+    <li>{{ key }}: {{ value }}</li>
+  {% endfor %}
+</ul>
+
+{% for i in 1...array.count %}
+{% for user in users where user.a != "z" %}
+
+{% for user in users %}
+  User number: {{ forloop.counter }} 
+  {% if forloop.first %}
+    This is the first user.
+  {% endif %}
+{% endfor %}
+```
+
+</td>
+</table>
+
+**Includes**
+
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars<br>(Mustache)</th>
+<th>Stencil</th>
+</tr>
+
+<tr>
+<th>Includes</th>
+<!--LEAF-->
+<td>
+
+```html
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+
+```handlebars
+```
+
+</td>
+<!--STENCIL-->
+<td>
+
+```django
+{% include "file.html" %}
+{% include "file.html" subcontext %}
+```
+
+</td>
+</table>
+
+**Inheritance**
+
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars<br>(Mustache)</th>
+<th>Stencil</th>
+</tr>
+
+<tr>
+<th>Inheritance</th>
+<!--LEAF-->
+<td>
+
+```html
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+
+```handlebars
+```
+
+</td>
+<!--STENCIL-->
+<td>
+
+_parent.html_
+
+```django
+{% block namedBlock %}
+<!-- parent content here -->
+{% endblock %}
+```
+
+_child.html_
+
+```django
+{% extends "parent.html" %}
+
+{% block namedBlock %}
+  <h2>replaces parent content</h2>
+{% endblock %}
+```
+
+</td>
+</table>
+
+**...**
+
+<table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
+
+<tr>
+<th></th>
+<th>Leaf 3</th>
+<th>Handlebars<br>(Mustache)</th>
+<th>Stencil</th>
+</tr>
+
+<tr>
+<th>...</th>
+<!--LEAF-->
+<td>
+
+```html
+```
+
+</td>
+<!--HANDLEBARS-->
+<td>
+
+```handlebars
+```
+
+</td>
+<!--STENCIL-->
+<td>
+
+```django
+```
+
+</td>
+</table>
 
 ## Considerations <a id="linkConsiderations">[▴](#toc)</a>
 
