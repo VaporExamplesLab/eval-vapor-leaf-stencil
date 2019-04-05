@@ -18,7 +18,9 @@
 [Considerations](#linkConsiderations) •
 [Resources](#Resources)
 
-Handlebars is used in the side-by-side syntax comparison tables below. Handlebars is, for the most part, a [superset of Mustache ⇗](https://en.wikipedia.org/wiki/Mustache_(template_system)#Handlebars).  As a syntax superset, the syntax highlighters such as [GitHub Linguist ⇗](https://github.com/github/linguist/blob/master/vendor/README.md), [HighlighJS ⇗](https://highlightjs.org/download/), and [PrismJS ⇗](https://prismjs.com/download.html) support the `handlebars` language.
+A side-by-side syntax comparison tables is provided below. 
+
+The syntax highlighters [GitHub/Linguist ⇗](https://github.com/github/linguist/blob/master/vendor/README.md), [HighlighJS ⇗](https://highlightjs.org/download/), and [PrismJS ⇗](https://prismjs.com/download.html) include support the `django` and `handlebars` syntax. Since handlebars is a [largely compatible superset of Mustache ⇗](https://en.wikipedia.org/wiki/Mustache_(template_system)#Handlebars), `handlebars` highlighter setting can be used in both cases.  Since Stencil is closely based on Django syntax, `djando` can be used as the highlighter setting for both.  Leaf syntax highlighting is not currently present in any of these particular highlighting engines.
 
 ## Notes <a id="linkNotes">[▴](#toc)</a>
 
@@ -30,7 +32,7 @@ Handlebars is used in the side-by-side syntax comparison tables below. Handlebar
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -86,7 +88,7 @@ Handlebars is used in the side-by-side syntax comparison tables below. Handlebar
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -142,7 +144,7 @@ Handlebars is used in the side-by-side syntax comparison tables below. Handlebar
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -213,7 +215,7 @@ operators: ==, !=, <, <=, >, and, or, not
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -280,7 +282,7 @@ operators: ==, !=, <, <=, >, and, or, not
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -318,7 +320,7 @@ operators: ==, !=, <, <=, >, and, or, not
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -369,7 +371,7 @@ _child.html_
 <th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
-<th>Stencil</th>
+<th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
@@ -417,7 +419,7 @@ Costs:
 
 | | Leaf 3 | Handlebars<br>(Mustache) | Stencil |
 |--------------------------------------------|:-:|:-:|:-:|
-| Swift Implementation (active maintenance)  | ✓ | ✓ | ✓ |
+| Swift Implementation (active maintenance)  | ✓ | (✓) | ✓ |
 | Non-Swift Implementations                  |   | ✓ | django |
 | Fully Block-Based (no line-based syntax)   |   | ✓ | ✓ |
 | Boundary Delimiters use 2 or more ASCII char |   | ✓ | ✓ |
@@ -426,9 +428,17 @@ Costs:
 
 ## Resources <a id="Resources">[▴](#toc)</a>
 
+_Syntax Highlighters_
+
+
+* [GitHub/Linguist ⇗](https://github.com/github/linguist/blob/master/vendor/README.md)
+* [HighlighJS ⇗](https://highlightjs.org/download/)
+* [PrismJS ⇗](https://prismjs.com/download.html)
+
+_Templating_
+
 * Django: [Built-in template tags and filters ⇗](https://docs.djangoproject.com/en/2.2/ref/templates/builtins/)
 * Leaf 3: [docs ⇗](https://docs.vapor.codes/3.0/leaf/overview/)
-* Handlebars: [docs ⇗](http://handlebarsjs.com/), [source ⇗](https://github.com/wycats/handlebars.js)
-    * syntax highlighters: 
+* Handlebars: [docs ⇗](http://handlebarsjs.com/), [source [JavaScript] ⇗](https://github.com/wycats/handlebars.js) 
 * Mustache: [source ⇗](http://mustache.github.io/), [mustache(5) ⇗](http://mustache.github.io/mustache.5.html), [GRMustache.swift ⇗](https://github.com/groue/GRMustache.swift) (not maintained), [Perfect-Mustache ⇗](https://github.com/PerfectlySoft/Perfect-Mustache)
 * Stencil: [docs ⇗](http://stencil.fuller.li/en/latest/)
