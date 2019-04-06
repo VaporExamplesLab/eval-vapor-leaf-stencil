@@ -14,29 +14,47 @@
 
 * Page: [README](../README.md), [Leaf](Leaf.md), [Stencil](Stencil.md), [swift-html](Swifthtml.md), [Swift Language (organic)](Swiftlang.md), Template Syntax  
 * Section: <a id="toc"></a>
-[Notes](#linkNotes) •
+[Notes](#linkSideBySide) •
 [Considerations](#linkConsiderations) •
 [Resources](#Resources)
 
-A side-by-side syntax comparison tables is provided below. 
+## Syntax Highlighters 
 
-The syntax highlighters [GitHub/Linguist ⇗](https://github.com/github/linguist/blob/master/vendor/README.md), [HighlighJS ⇗](https://highlightjs.org/download/), and [PrismJS ⇗](https://prismjs.com/download.html) include support the `django` and `handlebars` syntax. Since handlebars is a [largely compatible superset of Mustache ⇗](https://en.wikipedia.org/wiki/Mustache_(template_system)#Handlebars), `handlebars` highlighter setting can be used in both cases.  Since Stencil is closely based on Django syntax, `djando` can be used as the highlighter setting for both.  Leaf syntax highlighting is not currently present in any of these particular highlighting engines.
 
-## Notes <a id="linkNotes">[▴](#toc)</a>
+|                  | Django | Leaf | Handlebars| Mustache | Stencil | Twig |  
+|------------------|:------:|:----:|:---------:|:--------:|:-------:|:----:|
+| [Linguist][1]    | ✓      |      | ✓         | ‡        | †       | ✓    |
+| [HighlightJS][2] | ✓      | ✓    | ✓         | ‡        | †       | ✓    |
+| [PrismJS][3]     | ✓      |      | ✓         | ‡        | †       | ✓    |
 
-**Comments**
+[1]:https://github.com/github/linguist/blob/master/vendor/README.md
+[2]:https://highlightjs.org/download/
+[3]:https://prismjs.com/download.html
+
+```
+Legend:
+✓ Directly supported syntax.  
+† Django, Stencil, Twig syntax family.   
+‡ Handlebars, Mustache syntax family.  
+```
+
+Handlebars is a ["largely compatible" superset of Mustache ⇗](https://en.wikipedia.org/wiki/Mustache_(template_system)#Handlebars). Stencil and Twig use a block-syntax based on Django.  
+
+## Side-by-Side Syntax <a id="linkSideBySide">[▴](#toc)</a>
+
+Some side-by-side syntax comparison tables is provided below. 
+
+**Comment Statements**
 
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>Comments</th>
 <!--LEAF-->
 <td>
 
@@ -85,23 +103,26 @@ The syntax highlighters [GitHub/Linguist ⇗](https://github.com/github/linguist
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>Variables</th>
 <!--LEAF-->
 <td>
 
 ```html
-#(someContextKey)
+#(variable)
 
-#set("someKey") { 
-  Stored in context.
+#set("key") { 
+  <p>value</p>
 }
+
+<div>
+  #get("key")
+</div>
+
 ```
 
 </td>
@@ -141,14 +162,12 @@ The syntax highlighters [GitHub/Linguist ⇗](https://github.com/github/linguist
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>Conditional</th>
 <!--LEAF-->
 <td>
 
@@ -165,7 +184,11 @@ The syntax highlighters [GitHub/Linguist ⇗](https://github.com/github/linguist
     Something else.
 }
 
-operators: +, >, ==, ||, ...
+operators: +, >, ==, ||, …
+
+<li class="nav-item 
+  #if(title == "a"){active}"
+>
 ```
 
 </td>
@@ -207,19 +230,24 @@ operators: ==, !=, <, <=, >, and, or, not
 </td>
 </table>
 
+| | | |
+|----------------|:---------------------------------------------|------------------------|
+| **Leaf 3**     | `#if(title == "Home"){active}`               | single ASCII delimiter |
+| **Handlebars** |    | [requires helper ⇗](https://stackoverflow.com/questions/34252817/handlebarsjs-check-if-a-string-is-equal-to-a-value) |
+| **Stencil**    | `{% if title == "Home" %}active{% endif %}`  | dual ASCII delimiter + endtag |
+
+
 **Loop**
 
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>Loop</th>
 <!--LEAF-->
 <td>
 
@@ -279,14 +307,12 @@ operators: ==, !=, <, <=, >, and, or, not
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>Includes</th>
 <!--LEAF-->
 <td>
 
@@ -317,14 +343,12 @@ operators: ==, !=, <, <=, >, and, or, not
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>Inheritance</th>
 <!--LEAF-->
 <td>
 
@@ -368,14 +392,12 @@ _child.html_
 <table border="0.25" cellspacing="0" cellpadding="0" style="width:100%">
 
 <tr>
-<th></th>
 <th>Leaf 3</th>
 <th>Handlebars<br>(Mustache)</th>
 <th>Stencil<br>(Django)</th>
 </tr>
 
 <tr>
-<th>...</th>
 <!--LEAF-->
 <td>
 
@@ -417,12 +439,13 @@ Costs:
 ## Summary <a id="linkSummary">[▴](#toc)</a>
 
 
-| | Leaf 3 | Handlebars<br>(Mustache) | Stencil |
+| | Leaf 3 | Handlebars<br>(Mustache) | Stencil<br>(Django) |
 |--------------------------------------------|:-:|:-:|:-:|
-| Swift Implementation (active maintenance)  | ✓ | (✓) | ✓ |
-| Non-Swift Implementations                  |   | ✓ | django |
+| Swift Implementation (active maintenance)  | ✓ | ✓ | ✓ |
+| Non-Swift Implementations                  |   | ✓ | ✓ |
 | Fully Block-Based (no line-based syntax)   |   | ✓ | ✓ |
-| Boundary Delimiters use 2 or more ASCII char |   | ✓ | ✓ |
+| Delimiter use 2 or more ASCII characters   |   | ✓ | ✓ |
+| Body endtag                                |   | ✓ | ✓ |
 | Minimal Strong, Symmetric Boundary Pattern |   |   | ✓ |
 
 
@@ -437,8 +460,8 @@ _Syntax Highlighters_
 
 _Templating_
 
-* Django: [Built-in template tags and filters ⇗](https://docs.djangoproject.com/en/2.2/ref/templates/builtins/)
+* Django: [docs (built-in template tags and filters) ⇗](https://docs.djangoproject.com/en/2.2/ref/templates/builtins/)
 * Leaf 3: [docs ⇗](https://docs.vapor.codes/3.0/leaf/overview/)
 * Handlebars: [docs ⇗](http://handlebarsjs.com/), [source [JavaScript] ⇗](https://github.com/wycats/handlebars.js) 
-* Mustache: [source ⇗](http://mustache.github.io/), [mustache(5) ⇗](http://mustache.github.io/mustache.5.html), [GRMustache.swift ⇗](https://github.com/groue/GRMustache.swift) (not maintained), [Perfect-Mustache ⇗](https://github.com/PerfectlySoft/Perfect-Mustache)
-* Stencil: [docs ⇗](http://stencil.fuller.li/en/latest/)
+* Mustache: [docs ⇗](http://mustache.github.io/), [mustache(5) ⇗](http://mustache.github.io/mustache.5.html), [GRMustache.swift ⇗](https://github.com/groue/GRMustache.swift) (not maintained), [Perfect-Mustache ⇗](https://github.com/PerfectlySoft/Perfect-Mustache)
+* Stencil: [docs ⇗](http://stencil.fuller.li/en/latest/), [source ⇗](https://github.com/stencilproject/Stencil/)
