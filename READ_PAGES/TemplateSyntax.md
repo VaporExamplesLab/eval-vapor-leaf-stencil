@@ -40,7 +40,7 @@ Legend:
 
 Handlebars is a ["largely compatible" superset of Mustache ⇗](https://en.wikipedia.org/wiki/Mustache_(template_system)#Handlebars). Stencil and Twig use a block-syntax based on Django.  
 
-## Side-by-Side Syntax <a id="linkSideBySide">[▴](#toc)</a>
+## Side-by-Side Syntax <span id="linkSideBySide">[▴](#toc)</span>
 
 Some side-by-side syntax comparison tables is provided below. 
 
@@ -421,7 +421,7 @@ _child.html_
 </td>
 </table>
 
-## Considerations <a id="linkConsiderations">[▴](#toc)</a>
+## Considerations <span id="linkConsiderations">[▴](#toc)</span>
 
 _Templating Language Considerations_
 
@@ -436,7 +436,7 @@ Costs:
 * Social Cost: other team members need to learn language. templating languages are not standardized.
 * Less Tooling: e.g. syntax highlighting plugin, etc.
 
-## Summary <a id="linkSummary">[▴](#toc)</a>
+## Summary <span id="linkSummary">[▴](#toc)</span>
 
 
 | | Leaf 3 | Handlebars<br>(Mustache) | Stencil<br>(Django) |
@@ -449,7 +449,7 @@ Costs:
 | Minimal Strong, Symmetric Boundary Pattern |   |   | ✓ |
 
 
-## Resources <a id="Resources">[▴](#toc)</a>
+## Resources <span id="Resources">[▴](#toc)</span>
 
 _Syntax Highlighters_
 
@@ -460,8 +460,10 @@ _Syntax Highlighters_
 
 _Templating_
 
-* Django: [docs (built-in template tags and filters) ⇗](https://docs.djangoproject.com/en/2.2/ref/templates/builtins/)
+* Django: [docs (built-in template tags and filters) ⇗](https://docs.djangoproject.com/en/2.2/ref/templates/builtins/), [🅆](https://en.wikipedia.org/wiki/Django_(web_framework))
 * Leaf 3: [docs ⇗](https://docs.vapor.codes/3.0/leaf/overview/)
 * Handlebars: [docs ⇗](http://handlebarsjs.com/), [source [JavaScript] ⇗](https://github.com/wycats/handlebars.js) 
-* Mustache: [docs ⇗](http://mustache.github.io/), [mustache(5) ⇗](http://mustache.github.io/mustache.5.html), [GRMustache.swift ⇗](https://github.com/groue/GRMustache.swift) (not maintained), [Perfect-Mustache ⇗](https://github.com/PerfectlySoft/Perfect-Mustache)
+* Jinja [home](http://jinja.pocoo.org/), [source[Python]](https://github.com/pallets/jinja) 
+* Mustache: [docs ⇗](http://mustache.github.io/), [mustache(5) ⇗](http://mustache.github.io/mustache.5.html), [GRMustache.swift ⇗](https://github.com/groue/GRMustache.swift) (not maintained), [Perfect-Mustache ⇗](https://github.com/PerfectlySoft/Perfect-Mustache), [](https://github.com/janl/mustache.js/releases)
 * Stencil: [docs ⇗](http://stencil.fuller.li/en/latest/), [source ⇗](https://github.com/stencilproject/Stencil/)
+* Twig: [home](https://twig.symfony.com/), [wikipedia](https://en.wikipedia.org/wiki/Twig_(template_engine)), [source](https://github.com/twigphp/Twig)

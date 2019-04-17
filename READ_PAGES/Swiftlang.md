@@ -20,6 +20,6 @@ Swift Language (organic) Templates (`swiftlang`) are templates written directly 
 
 
 
-## Resources <a id="linkResources">[▴](#toc)</a>
+## Resources <span id="linkResources">[▴](#toc)</span>
 
 * [Swift ⇗](https://swift.org)

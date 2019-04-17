@@ -110,6 +110,6 @@ let package = Package(
 )
 ```
 
-## Resources <a id="Resources">[▴](#toc)</a>
+## Resources <span id="Resources">[▴](#toc)</span>
 
 * [GitHub/stencilproject: Stencil ⇗](https://github.com/stencilproject/Stencil)

@@ -16,6 +16,6 @@
 * Section: <a id="toc"></a>
 [Resources](#linkResources)
 
-## Resources <a id="Resources">[▴](#toc)</a>
+## Resources <span id="Resources">[▴](#toc)</span>
 
 * [GitHub: vapor/leaf ⇗](https://github.com/vapor/leaf)

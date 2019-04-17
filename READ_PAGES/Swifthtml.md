@@ -24,7 +24,7 @@ Did not Find in the documentation how to create:
 * `<!-- some comment -->`
 * ...
 
-## Resources <a id="linkResources">[▴](#toc)</a>
+## Resources <span id="linkResources">[▴](#toc)</span>
 
 * [GitHub/pointfreeco: swift-html ⇗](https://github.com/pointfreeco/swift-html)
 * [GitHub/pointfreeco: swift-html-vapor ⇗](https://github.com/pointfreeco/swift-html-vapor)
