@@ -13,7 +13,7 @@
 </p>
 
 * Page: README, [Leaf](READ_PAGES/Leaf.md), [Stencil](READ_PAGES/Stencil.md), [swift-html](READ_PAGES/Swifthtml.md), [Swift Language (organic)](READ_PAGES/Swiftlang.md), [Template Syntax](READ_PAGES/TemplateSyntax.md) 
-* Section: <scan id="toc"></span>
+* Section: <span id="toc"></span>
 [Approach](#linkApproach) •
 [Cases](#linkCases) •
 [Getting Started](#linkGettingStarted) •
@@ -23,7 +23,7 @@
 
 _The `eval-vapor-leaf-stencil` Vapor project provides some select HTML templating examples with Leaf, Stencil, swift-html DSL (Domain Specific Language), and Swift Programming Language (organic)._
 
-## Approach <scan id="linkApproach">[▴](#toc)</span>
+## Approach <span id="linkApproach">[▴](#toc)</span>
 
 All approaches are setup to use the SwiftNIO `EventLoopFuture<ResponseEncodable>` (_typealias_ `Future<ResponseEncodable>`).  Three approaches (leaf, stencil, swiftlang) render a `View` for the `ResponseEncodable`. The swift-html renders a `Html.Node` for the `ResponseEncodable`.
 
@@ -39,7 +39,7 @@ This approach extends `Html.Node` to be `ResponseEncodable`. Thus, the theses te
 
 "Swift Organic" uses the Swift Programming Language `swiftlang` without any additional templating packages.  This approach assembles a Swift String which is rendered to a Vapor `ResponseEncodable` `View`. 
 
-## Cases <scan id="linkCases">[▴](#toc)</span>
+## Cases <span id="linkCases">[▴](#toc)</span>
 
 For each use case, replace `/<approach>` with one of `/leaf`, `/stencil`, `/swift-html`, or `/swiftlang` in the URL `localhost:8080/<approach>/<usecase>` URL.  For example, the Leaf approach URL for the "Hello" use case would be `localhost:8080/hello/Sunshine`.
 
@@ -85,11 +85,11 @@ _Markdown To HTML Elements_  `/<approach>/mdtohtml`
 
 
 
-## Getting Started <scan id="linkGettingStarted">[▴](#toc)</span>
+## Getting Started <span id="linkGettingStarted">[▴](#toc)</span>
 
-## Observations <scan id="linkObservations">[▴](#toc)</span>
+## Observations <span id="linkObservations">[▴](#toc)</span>
 
-## Preliminary Setup <scan id="linkPreliminarySetup">[▴](#toc)</span>
+## Preliminary Setup <span id="linkPreliminarySetup">[▴](#toc)</span>
 
 ``` swift
 vapor new eval-vapor-leaf-stencil --web
@@ -101,7 +101,7 @@ touch README_files/.git_keep # create file so folder is not empty for `git`
 vapor update -y
 ```
 
-## Resources <scan id="linkResources">[▴](#toc)</span>
+## Resources <span id="linkResources"></span>
 
 * [GitHub/NocturnalSolutions: StencilBugTest ⇗](https://github.com/NocturnalSolutions/StencilBugTest) … illustrates a simple way to invoke Stencil.
 * [GitHub/stencilproject: Stencil ⇗](https://github.com/stencilproject/Stencil)
